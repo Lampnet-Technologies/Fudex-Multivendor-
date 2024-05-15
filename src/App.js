@@ -1,21 +1,10 @@
 import './App.css';
+import AddressScreen from './Pages/Address';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>me</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      < AddressScreen />
     </div>
   );
 }
