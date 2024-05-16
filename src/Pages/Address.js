@@ -36,7 +36,7 @@ function AddressScreen() {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ textAlign: 'left' }}>
+    <Container maxWidth="xl" sx={{ textAlign: 'left', paddingBottom: '2rem' }}>
       {/* Top Section */}
       <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
         <ChevronRightIcon sx={{ transform: 'rotate(180deg)', fontSize: '2rem', cursor: 'pointer' }} />
@@ -117,26 +117,41 @@ function AddressScreen() {
             <div>{address}</div>
             
             {/* Buttons */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '0.5rem', alignItems: 'flex-start', margin: '1rem 0' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}>
-                <Button variant="contained" sx={{ backgroundColor: '#F6613F' }}>ASAP</Button>
-                <Button variant="contained" sx={{ backgroundColor: '#fff', color: 'black' }}>Schedule</Button>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem', alignItems: 'flex-start', margin: '1rem 0' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignItems: 'center' }}>
+                <Button variant="contained" sx={{ backgroundColor: '#F6613F', width: '100%' }}>ASAP</Button>
+                <Button variant="contained" sx={{ backgroundColor: '#fff', color: 'black', width: '100%' }}>Schedule</Button>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}>
-                <Button variant="contained" sx={{ backgroundColor: '#F6613F' }}>Delivery</Button>
-                <Button variant="contained" sx={{ backgroundColor: '#fff', color: 'black' }}>Pick-up</Button>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignItems: 'center' }}>
+                <Button variant="contained" sx={{ backgroundColor: '#F6613F', width: '100%' }}>Delivery</Button>
+                <Button variant="contained" sx={{ backgroundColor: '#fff', color: 'black', width: '100%' }}>Pick-up</Button>
             </div>
+            </div>
+            <hr style={{ border: 'none', borderTop: '1px solid #ccc', width: '100%', margin: '2rem 0' }} />
+          </div>
+
+          {/* drop-off section */}
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '0.5rem', alignItems: 'flex-start', margin: '1rem 0', height: '100px' }}>
+          <Typography variant='h6' sx={{ marginRight: '2rem' }}>Drop-off options</Typography>
+                <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center', height: '100%' }}>
+                    <Button variant="contained" sx={{ backgroundColor: '#F6613F' }}>Hand it to me</Button>
+                    <Button variant="contained" sx={{ backgroundColor: '#fff', color: 'black' }}>Leave at the door</Button>
+                </div>
             </div>
 
-          </div>
+            {/* Divider */}
+            <hr style={{ border: 'none', borderTop: '10px solid rgba(249, 250, 251, 1)', width: '100%', margin: '2rem 0' }} />
 
           {/* Checkbox Section */}
-          <div style={{ marginTop: '2rem' }}>
-            <Checkbox color="primary" />
-            <Typography variant="body1">Agree to terms and conditions</Typography>
-            <Button variant="contained" sx={{backgroundColor: '#F6613F'}} onClick={handleSaveAddress}>Save Address</Button>
-          </div>
-        </div>
+            <div style={{ display: 'flex', marginTop: '2rem', justifyContent: 'flex-start', alignItems: 'center', marginLeft: '-10px' }}>
+                <Checkbox color="primary" />
+                <Typography variant="body1">I'm sending a gift</Typography>
+            </div>
+                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' , marginLeft: '30px', marginTop: '-10px'}}>
+                    <Typography variant="caption" fontWeight={100}>Add a card and note at checkout </Typography>
+                </div>
+            <Button variant="contained" sx={{backgroundColor: '#F6613F', width: '200px', marginTop: '30px'}} onClick={handleSaveAddress}>Save Address</Button>
+        </div>       
       )}
     </Container>
   );
