@@ -43,11 +43,13 @@ function AddressScreen() {
         <Typography variant="h5" sx={{ marginLeft: '1rem' }}>Add Address</Typography>
       </div>
 
-      {/* Divider */}
-      <hr style={{ border: 'none', borderTop: '1px solid #ccc', width: '100%', margin: '2rem 0' }} />
+      {/* Conditional rendering for the first hr line */}
+      {!address && (
+        <hr style={{ border: 'none', borderTop: '1px solid #ccc', width: '100%', margin: '2rem 0' }} />
+      )}
 
       {/* Middle Section */}
-      <Grid container spacing={1} alignItems="flex-start" justifyContent="flex-start">
+      <Grid container spacing={1} alignItems="flex-start" justifyContent="flex-start" style={{ marginTop: '2rem' }}>
         <Grid item xs={10} sm={8} md={6}>
           <TextField
             fullWidth
