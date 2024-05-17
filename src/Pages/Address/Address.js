@@ -168,11 +168,11 @@ function AddressScreen() {
             <Typography variant='h6' sx={{ marginLeft: '1rem' }}>Recent Locations</Typography>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
               {recentLocations.map((location, index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '1rem' }}>
+                <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '1rem', backgroundColor: '#F3F4F6', height: '100px' }}>
                   <LocationOnIcon />
                   <div>
                     <Typography variant="body1">{location}</Typography>
-                    <Typography variant="caption">Street Name</Typography> {/* Adjust the street name as needed */}
+                    <Typography variant="caption">Street Name</Typography>
                   </div>
                 </div>
               ))}
