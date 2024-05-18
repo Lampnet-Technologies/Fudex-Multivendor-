@@ -11,7 +11,7 @@ const ChevronIcon = ({ direction = 'left', size = '2.5rem', onClick }) => {
 
   return (
     <ChevronRightIcon
-      sx={{ transform: `rotate(${rotation})`,padding: '20px', fontSize: size, cursor: 'pointer', marginTop: '20px' }}
+      sx={{ transform: `rotate(${rotation})`, fontSize: size, cursor: 'pointer', marginTop: '2px' }}
       onClick={onClick}
     />
   );
