@@ -89,8 +89,48 @@
   
   .icon {
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
   }
+
+  .preferences-section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+  }
   
+  .preferences-category {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2rem;
+    align-items: center;
+  }
+
+  .preference {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 100px;
+    margin-top: 0.5rem;
+    gap: 5px;
+    flex: 0;
+  }
+
+  .preference2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 127px;
+    margin-top: 0.5rem;
+    gap: 5px;
+    flex: 0;
+  }
+  .chev-icon {
+    margin-top: 0.2rem;
+  }
   
