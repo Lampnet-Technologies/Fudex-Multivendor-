@@ -1,6 +1,10 @@
 import React from 'react';
 import { Container, Typography } from '@mui/material';
 import ChevronIcon from '../../Components/ChevronIcon';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import HelpIcon from '@mui/icons-material/Help';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import './AccountPage.css';
 
 const AccountPage = () => {
@@ -35,6 +39,28 @@ const AccountPage = () => {
             />
           </div>
         </div>
+
+        {/*icon categories section*/}
+        <div className='icon-categories-container'>
+        <div className='icon-categories'>
+        <div className="icon-category">
+            <FavoriteIcon className="icon" />
+            <Typography variant="caption">Favorites</Typography>
+          </div>
+          <div className="icon-category">
+            <HelpIcon className="icon" />
+            <Typography variant="caption">Help & Support</Typography>
+          </div>
+          <div className="icon-category">
+            <SettingsIcon className="icon" />
+            <Typography variant="caption">Settings</Typography>
+          </div>
+          <div className="icon-category">
+            <AccountBalanceWalletIcon className="icon" />
+            <Typography variant="caption">Wallet</Typography>
+          </div>
+        </div>
+      </div>
       </Container>
     </>
   );
