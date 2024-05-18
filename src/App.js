@@ -1,13 +1,13 @@
 import './App.css';
 import 'leaflet/dist/leaflet.css';
 import AddressScreen from './Pages/Address/Address';
-import ChevronIcon from './Components/ChevronIcon';
+import AccountPage from './Pages/UserAccount/AccountPage';
 
 function App() {
   return (
     <>
-      < ChevronIcon />
       {/* < AddressScreen /> */}
+      < AccountPage />
     </>
   );
 }

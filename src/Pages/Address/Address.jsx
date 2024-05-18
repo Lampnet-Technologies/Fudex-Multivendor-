@@ -43,7 +43,7 @@ function AddressScreen() {
     <Container maxWidth="xl" sx={{ textAlign: 'left', paddingBottom: '2rem' }}>
       {/* Top Section */}
       <div style={{ marginTop: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-        <ChevronRightIcon sx={{ transform: 'rotate(180deg)', fontSize: '2rem', cursor: 'pointer' }} />
+        <ChevronRightIcon sx={{ transform: 'rotate(180deg)', fontSize: '2.5rem', cursor: 'pointer' }} />
         <Typography variant="h5" sx={{ marginLeft: '1rem' }}>Add Address</Typography>
       </div>
 
