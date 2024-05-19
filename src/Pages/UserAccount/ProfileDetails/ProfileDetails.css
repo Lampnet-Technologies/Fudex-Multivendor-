@@ -3,7 +3,6 @@
     filter: brightness(70%);
 }
 
-
 .profile-details-section {
     margin-top: 4rem;
     display: flex;
@@ -86,7 +85,6 @@
 .photo-container-raise:hover .overlay {
     opacity: 1;
 }
-
 
 .parent-container {
     display: flex;
