@@ -1,3 +1,8 @@
+.photo-container-raise:hover .profile-picture {
+    -webkit-filter: brightness(70%);
+    filter: brightness(70%);
+}
+
 
 .profile-details-section {
     margin-top: 4rem;
@@ -51,6 +56,37 @@
     z-index: 2;
     position: relative;
 }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: white;
+    font-size: 2rem;
+}
+
+/* .photo-container-raise:hover .profile-picture {
+    brightness: 0.5;
+} */
+
+.photo-container-raise:hover .overlay {
+    opacity: 1;
+}
+
 
 .parent-container {
     display: flex;

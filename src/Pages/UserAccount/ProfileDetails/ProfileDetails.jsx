@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Typography, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChevronIcon from '../../../Components/ChevronIcon';
+import EditIcon from '@mui/icons-material/Edit';
 import './ProfileDetails.css';
 
 const ProfileDetails = () => {
@@ -18,7 +19,7 @@ const ProfileDetails = () => {
 
   return (
     <Container maxWidth="xl" className="container">
-      
+
       {/* Top Section */}
       <div className="profile-details-section" onClick={handleChevronClick}>
         <ChevronIcon size='2rem' />
@@ -30,6 +31,9 @@ const ProfileDetails = () => {
         <div className="photo-container-raise">
           <div className="profile-picture-frame" />
           <img src="bitmap.jpg" alt="User Profile" className="profile-picture" />
+          <div className="overlay">
+            <EditIcon className="edit-icon" />
+          </div>
         </div>
       </div>
 
