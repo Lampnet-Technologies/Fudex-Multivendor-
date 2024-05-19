@@ -26,6 +26,10 @@ const AccountPage = () => {
     navigate('/profile');
   };
 
+  const handleSettingsClick = () => {
+    navigate('/settings');
+  };
+
   return (
     <>
       <Container maxWidth="xl" className="container">
@@ -66,13 +70,13 @@ const AccountPage = () => {
             <HelpIcon fontSize='2rem' className="icon" />
             <Typography variant="caption">Help & Support</Typography>
           </div>
-          <div className="icon-category">
+          <div className="icon-category" onClick={handleSettingsClick}>
             <SettingsIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption">Settings</Typography>
+            <Typography variant="caption" sx={{marginRight: '8px'}}>Settings</Typography>
           </div>
           <div className="icon-category">
             <AccountBalanceWalletIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption">Wallet</Typography>
+            <Typography variant="caption" sx={{marginRight: '8px'}}>Wallet</Typography>
           </div>
         </div>
       </div>
