@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Container, Typography, TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChevronIcon from '../../../Components/ChevronIcon';
@@ -7,7 +7,8 @@ import './ProfileDetails.css';
 
 const ProfileDetails = () => {
   const navigate = useNavigate();
-  
+  const fileInputRef = useRef(null);
+
   const handleChevronClick = () => {
     navigate('/profile');
   };
@@ -16,6 +17,21 @@ const ProfileDetails = () => {
     event.preventDefault();    
   };
 
+  const handleEditIconClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Optionally, update the profile picture preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.querySelector('.profile-picture').src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <Container maxWidth="xl" className="container">
@@ -31,9 +47,16 @@ const ProfileDetails = () => {
         <div className="photo-container-raise">
           <div className="profile-picture-frame" />
           <img src="bitmap.jpg" alt="User Profile" className="profile-picture" />
-          <div className="overlay">
+          <div className="overlay" onClick={handleEditIconClick}>
             <EditIcon className="edit-icon" />
           </div>
+          <input
+            type="file"
+            ref={fileInputRef}
+            style={{ display: 'none' }}
+            accept="image/*"
+            onChange={handleFileChange}
+          />
         </div>
       </div>
 
