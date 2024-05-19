@@ -53,9 +53,11 @@
   }
   
   .label-off {
+    font-weight: 200;
     margin-right: 10px;
   }
   
   .label-on {
+    font-weight: 200;
     margin-left: 10px;
   }

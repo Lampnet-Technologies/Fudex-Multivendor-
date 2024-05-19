@@ -1,7 +1,74 @@
+.settings-section {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    margin-right: 11rem;
+    gap: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+
 .toggle-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
+}
+
+.holder1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    gap: 3rem;
+}
+
+.holder2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    gap: 3rem;
+}
+.holder3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    gap: 3rem;
+}
+
+.holder4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 3.5rem;
+    gap: 3rem;
+}
+
+.holder5 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 5rem;
+    gap: 3rem;
+}
+
+.toggler {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toggle-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5rem;
 }
