@@ -1,3 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem;
+}
+
 .top {    
     margin-top: 8rem;
     display: flex;
@@ -40,4 +47,62 @@
 
 .icon {
     cursor: pointer;
+}
+
+.close-icon {
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: rgb(85, 82, 82);
+}
+  
+.header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+  
+.place {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+  
+.icon {
+    margin-right: 1rem;
+    font-size: 2rem;
+}
+  
+.place-text {
+    display: flex;
+    flex-direction: column;
+}
+  
+.add-text {
+    color: gray;
+}
+
+.move {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-right: 650px;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .profile-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .move {
+        margin-right: 0;
+        width: 100%;
+    }
+    .container {
+        padding-bottom: 0.5rem;
+    }
 }

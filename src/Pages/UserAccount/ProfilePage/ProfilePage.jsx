@@ -3,6 +3,8 @@ import { Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import ChevronIcon from '../../../Components/ChevronIcon';
+import HomeIcon from '@mui/icons-material/Home';
+import WorkIcon from '@mui/icons-material/Work';
 import './ProfilePage.css';
 
 
@@ -21,7 +23,7 @@ const ProfilePage = () => {
 
       {/* Top Section */}
       <div className="top" onClick={handleCloseClick}>
-          <CloseIcon fontSize='2rem' className="icon"/>
+          <CloseIcon fontSize='2rem' className="close-icon"/>
         </div>
 
         {/*profile picture section */}
@@ -42,6 +44,24 @@ const ProfilePage = () => {
             <Typography variant="h6">Profile Details</Typography>
             <ChevronIcon direction='right' className="icon" />
           </div>
+        </div>
+
+        <div className='move'>
+        <Typography variant="h6" className="header">Saved Places</Typography>
+        <div className="place">
+          <HomeIcon className="icon" />
+          <div className="place-text">
+            <Typography variant="body1">Home</Typography>
+            <Typography variant="body2" className="add-text">Add Home</Typography>
+          </div>
+        </div>
+        <div className="place">
+          <WorkIcon className="icon" />
+          <div className="place-text">
+            <Typography variant="body1">Work</Typography>
+            <Typography variant="body2" className="add-text">Add Work</Typography>
+          </div>
+        </div>
         </div>
       </div>
       </Container>
