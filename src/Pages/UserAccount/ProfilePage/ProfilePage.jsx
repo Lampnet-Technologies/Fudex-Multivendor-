@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Typography, Box, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import ChevronIcon from '../../../Components/ChevronIcon';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
-import ChevronIcon from '../../../Components/ChevronIcon';
+
 
 
 const ProfilePage = () => {
