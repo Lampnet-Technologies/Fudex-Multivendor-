@@ -18,7 +18,8 @@ const PromotionsPage = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
+    <Container maxWidth="xl" sx={{ padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      
       {/* Top Section */}
       <Box
         display="flex"
@@ -60,7 +61,7 @@ const PromotionsPage = () => {
         </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', paddingBottom: '1rem' }}>
                 <Button variant="contained" sx={{ marginRight: '1rem', backgroundColor: '#F6613F' }}>Order Now</Button>
-                <Typography variant="body2" sx={{ cursor: 'pointer' }}>Detail</Typography>
+                <Typography variant="body2" sx={{ cursor: 'pointer', marginLeft: '1rem' }}>Detail</Typography>
             </Box>
       </Box>
     </Container>

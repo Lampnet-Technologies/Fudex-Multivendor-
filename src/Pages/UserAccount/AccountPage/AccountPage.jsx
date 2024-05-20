@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Box, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChevronIcon from '../../../Components/ChevronIcon';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -14,13 +14,15 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import LanguageIcon from '@mui/icons-material/Language';
 import InfoIcon from '@mui/icons-material/Info';
 import LogoutIcon from '@mui/icons-material/Logout';
-import './AccountPage.css';
-
 
 const AccountPage = () => {
   const userName = "Jane Doe";
   const userEmail = "janedoe007@gmail.com";
   const navigate = useNavigate();
+
+  const handleChevronClick = () => {
+    navigate('/');
+  };
 
   const handleViewActivityClick = () => {
     navigate('/profile');
@@ -35,119 +37,112 @@ const AccountPage = () => {
   };
 
   return (
-    <>
-      <Container maxWidth="xl" className="container">
+    <Container maxWidth="xl" sx={{ textAlign: 'left', paddingBottom: '2rem' }}>
+      {/* Top Section */}
+      <Box sx={{ marginTop: '2rem', display: 'flex', alignItems: 'center' }}>
+        <IconButton onClick={handleChevronClick}>
+          <ChevronIcon size='2rem' />
+        </IconButton>
+      </Box>
 
-        {/* Top Section */}
-        <div className="top-section">
-          <ChevronIcon size='2rem'/>
-        </div>
+      {/* Photo Section */}
+      <Box sx={{ marginTop: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: '850px', mx: 'auto' }}>
+        <Box>
+          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{userName}</Typography>
+          <Typography variant="body1" sx={{ color: 'gray' }}>{userEmail}</Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', marginTop: '0.5rem' }} onClick={handleViewActivityClick}>
+            <Typography variant="body2" sx={{ color: 'black' }}>View Activity</Typography>
+            <ChevronIcon direction="right" size="1rem" sx={{ marginLeft: '0.5rem' }} />
+          </Box>
+        </Box>
+        <Box sx={{ position: 'relative', width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', padding: '2px', boxSizing: 'border-box', boxShadow: '0px 5px 10px -5px rgba(0, 0, 0, 2)' }}>
+          <Box sx={{ width: '100%', height: '100%', borderRadius: '50%', backgroundColor: 'lightcoral', position: 'absolute', top: 0, left: 0, zIndex: 1 }} />
+          <img src="bitmap.jpg" alt="User Profile" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', position: 'relative', zIndex: 2 }} />
+        </Box>
+      </Box>
 
-        {/* Photo Section */}
-        <div className="photo-section">
-          <div className="user-details">
-            <Typography variant="h5" className="user-name">{userName}</Typography>
-            <Typography variant="body1" className="user-email">{userEmail}</Typography>
-            <div className="view-activity" onClick={handleViewActivityClick}>
-              <Typography variant="body2" sx={{ color: 'black' }} >View Activity</Typography>
-              <ChevronIcon direction="right" size="1rem" />
-            </div>
-          </div>
-          <div className="profile-picture-container">
-            <div className="profile-picture-frame" />
-            <img
-              src="bitmap.jpg"
-              alt="User Profile"
-              className="profile-picture"
-            />
-          </div>
-        </div>
-
-        {/*icon categories section*/}
-        <div className='icon-categories-container'>
-        <div className='icon-categories'>
-        <div className="icon-category">
-            <FavoriteIcon fontSize='2rem' className="icon" />
+      {/* Icon Categories Section */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around', width: '100%', maxWidth: '1000px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <FavoriteIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
             <Typography variant="caption">Favorites</Typography>
-          </div>
-          <div className="icon-category">
-            <HelpIcon fontSize='2rem' className="icon" />
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <HelpIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
             <Typography variant="caption">Help & Support</Typography>
-          </div>
-          <div className="icon-category" onClick={handleSettingsClick}>
-            <SettingsIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" sx={{marginRight: '8px'}}>Settings</Typography>
-          </div>
-          <div className="icon-category">
-            <AccountBalanceWalletIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" sx={{marginRight: '8px'}}>Wallet</Typography>
-          </div>
-        </div>
-      </div>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} onClick={handleSettingsClick}>
+            <SettingsIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
+            <Typography variant="caption">Settings</Typography>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <AccountBalanceWalletIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
+            <Typography variant="caption">Wallet</Typography>
+          </Box>
+        </Box>
+      </Box>
 
-        {/* user preferences section */}
-        <div className='preferences-section-container'>
-        <div className='preferences-category'>
-          <div className="preference">
-            <ShoppingCartIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption">Orders</Typography>
-          </div>
-          <div className="chev-icon">
-            <ChevronIcon direction='right' className="icon" />
-          </div>
-        </div>
-        <div className='preferences-category'>
-          <div className="preference">
-            <HistoryIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >Order history</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-        <div className='preferences-category'>
-          <div className="preference">
-            <EmojiEventsIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >Rewards</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-        <div className='preferences-category' onClick={handlePromotionsClick}>
-          <div className="preference">
-            <CardGiftcardIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >Promotions</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-        <div className='preferences-category'>
-          <div className="preference">
-            <LanguageIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >Language</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-        <div className='preferences-category'>
-          <div className="preference">
-            <NotificationsIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >Notification</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-        <div className='preferences-category'>
-          <div className="preference2">
-            <InfoIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >About</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-        <div className='preferences-category'>
-          <div className="preference2">
-            <LogoutIcon fontSize='2rem' className="icon" />
-            <Typography variant="caption" >Logout</Typography>
-          </div>
-            <ChevronIcon direction='right' className="icon" />
-        </div>
-      </div>
-      </Container>
-    </>
+      {/* User Preferences Section */}
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '4rem' }}>
+        {[{
+          icon: <ShoppingCartIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Orders',
+          onClick: null
+        }, {
+          icon: <HistoryIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Your Order history',
+          onClick: null
+        }, {
+          icon: <EmojiEventsIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Restaurant Rewards',
+          onClick: null
+        }, {
+          icon: <CardGiftcardIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Promotions',
+          onClick: handlePromotionsClick
+        }, {
+          icon: <LanguageIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Language',
+          onClick: null
+        }, {
+          icon: <NotificationsIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Notification',
+          onClick: null
+        }, {
+          icon: <InfoIcon sx={{ fontSize: '2rem' }} />,
+          text: 'About',
+          onClick: null
+        }, {
+          icon: <LogoutIcon sx={{ fontSize: '2rem' }} />,
+          text: 'Logout',
+          onClick: null
+        }].map((preference, index) => (
+          <Box
+            key={index}
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '100%',
+              maxWidth: '800px',
+              marginTop: '1rem',
+              alignItems: 'center',
+              padding: '1rem',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}
+            onClick={preference.onClick}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              {preference.icon}
+              <Typography variant="caption">{preference.text}</Typography>
+            </Box>
+            <ChevronIcon direction="right" size="1rem" />
+          </Box>
+        ))}
+      </Box>
+    </Container>
   );
 };
 
