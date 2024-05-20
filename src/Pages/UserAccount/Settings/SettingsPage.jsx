@@ -1,77 +1,65 @@
-import React from 'react'
-import { Container, Typography } from '@mui/material';
+import React from 'react';
+import { Container, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChevronIcon from '../../../Components/ChevronIcon';
 import ToggleSwitch from '../../../Components/Toggler/ToggleSwitch';
-import './SettingsPage.css'
 
+const profiles = [
+  { name: 'Seizure safe profile', description: 'Clear flashes & reduces color' },
+  { name: 'Vision impaired profile', description: 'Enhances app visuals' },
+  { name: 'ADHD friendly profile', description: 'More focus & fewer distractions' },
+  { name: 'Cognitive disability profile', description: 'Assists with reading & focusing' },
+  { name: 'Blind users(Screen readers)', description: 'Optimize app for screen readers' },
+];
 
 const Settings = () => {
   const navigate = useNavigate();
-  
+
   const handleChevronClick = () => {
     navigate('/');
   };
+
   return (
-    <Container maxWidth="xl" className="container">
+    <Container maxWidth="xl" sx={{ padding: '2rem', display: 'flex', justifyContent: 'center' }}>
+      <Box sx={{ maxWidth: '800px', width: '100%' }}>
 
-      {/* Top Section */}
-      <div className="settings-section" onClick={handleChevronClick}>
-        <ChevronIcon size='2rem' />
-        <Typography variant="h6" sx={{marginLeft: '100px'}}>Settings</Typography>
-      </div>
+        {/* Top Section */}
+        <Box
+          display="flex"
+          alignItems="center"
+          sx={{ cursor: 'pointer', marginBottom: '2rem' }}
+          onClick={handleChevronClick}
+        >
+          <ChevronIcon size="2rem" />
+          <Typography variant="h6" sx={{ marginLeft: '1rem' }}>Settings</Typography>
+        </Box>
 
-      {/* accessibility profile */}
-      <div className='toggle-container'>
-        <Typography variant="h6" sx={{marginLeft: '2rem'}}>Choose the right accessibility profile for you</Typography>
-          <div className='holder1'>
-            <div className='toggler'>
+        {/* Accessibility Profiles */}
+        <Box>
+          <Typography variant="h6" sx={{ marginBottom: '1rem' }}>
+            Choose the right accessibility profile for you
+          </Typography>
+          {profiles.map((profile, index) => (
+            <Box
+              key={index}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                padding: '1rem 0',
+                
+              }}
+            >
               <ToggleSwitch />
-            </div>
-          <div className='toggle-text'>
-              <Typography variant="h6" className="user-name">Seizure safe profile</Typography>
-              <Typography variant="caption" className="user-email">Clear flashes & reduces color</Typography>
-          </div>
-        </div>
-        <div className='holder2'>
-            <div className='toggler'>
-              <ToggleSwitch />
-            </div>
-          <div className='toggle-text'>
-              <Typography variant="h6" className="user-name">Vision impaired profile</Typography>
-              <Typography variant="caption" className="user-email">Enhances apps visuals</Typography>
-          </div>
-        </div>
-        <div className='holder3'>
-            <div className='toggler'>
-              <ToggleSwitch />
-            </div>
-          <div className='toggle-text'>
-              <Typography variant="h6" className="user-name">ADHD friendly profile</Typography>
-              <Typography variant="caption" className="user-email">More focus & fewer distractions </Typography>
-          </div>
-        </div>
-        <div className='holder4'>
-            <div className='toggler'>
-              <ToggleSwitch />
-            </div>
-          <div className='toggle-text'>
-              <Typography variant="h6" className="user-name">Cognitive disability profile</Typography>
-              <Typography variant="caption" className="user-email">Assists with reading & focusing</Typography>
-          </div>
-        </div>
-        <div className='holder5'>
-            <div className='toggler'>
-              <ToggleSwitch />
-            </div>
-          <div className='toggle-text'>
-              <Typography variant="h6" className="user-name">Blind users(Screen readers)</Typography>
-              <Typography variant="caption" className="user-email">Optimize app for screen readers</Typography>
-          </div>
-        </div>
-      </div>
+              <Box sx={{ marginLeft: '1rem' }}>
+                <Typography variant="h6">{profile.name}</Typography>
+                <Typography variant="caption">{profile.description}</Typography>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      </Box>
     </Container>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;
