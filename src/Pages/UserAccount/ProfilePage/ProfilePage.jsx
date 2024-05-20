@@ -17,7 +17,11 @@ const ProfilePage = () => {
   };
   const handleCloseClick = () => {
     navigate('/')
-  }
+  };
+  const handleHomeIconClick = () => {
+    navigate('/address');
+  };
+
   return (
     <Container maxWidth="xl" className="container">
 
@@ -50,7 +54,7 @@ const ProfilePage = () => {
         <Typography variant="h6" className="header">Saved Places</Typography>
         <div className="place">
           <HomeIcon className="icon" />
-          <div className="place-text">
+          <div className="place-text" onClick={handleHomeIconClick}>
             <Typography variant="body1">Home</Typography>
             <Typography variant="body2" className="add-text">Add Home</Typography>
           </div>

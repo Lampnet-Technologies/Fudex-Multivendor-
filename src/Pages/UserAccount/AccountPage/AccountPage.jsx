@@ -30,6 +30,10 @@ const AccountPage = () => {
     navigate('/settings');
   };
 
+  const handlePromotionsClick = () => {
+    navigate('/promotions');
+  };
+
   return (
     <>
       <Container maxWidth="xl" className="container">
@@ -106,7 +110,7 @@ const AccountPage = () => {
           </div>
             <ChevronIcon direction='right' className="icon" />
         </div>
-        <div className='preferences-category'>
+        <div className='preferences-category' onClick={handlePromotionsClick}>
           <div className="preference">
             <CardGiftcardIcon fontSize='2rem' className="icon" />
             <Typography variant="caption" >Promotions</Typography>
