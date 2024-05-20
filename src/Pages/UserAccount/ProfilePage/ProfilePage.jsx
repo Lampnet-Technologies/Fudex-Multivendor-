@@ -25,7 +25,7 @@ const ProfilePage = () => {
     <Container maxWidth="xl" sx={{ textAlign: 'left', paddingBottom: '2rem' }}>
 
       {/* Top Section */}
-      <Box sx={{ marginTop: '2rem', display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1000px' }}>
+      <Box sx={{ marginTop: '4rem', display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '1000px' }}>
         <IconButton onClick={handleCloseClick}>
           <CloseIcon fontSize="large" />
         </IconButton>
