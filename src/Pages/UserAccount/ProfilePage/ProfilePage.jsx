@@ -7,7 +7,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 
 
-
 const ProfilePage = () => {
   const userName = "Jane Doe";
   const navigate = useNavigate();
@@ -50,7 +49,12 @@ const ProfilePage = () => {
           </Box>
         </Box>
 
-        <Typography variant="h6" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '1rem', width: '100%', maxWidth: '1100px' }}>Saved Places</Typography>
+        <Typography variant="h6" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', 
+          marginBottom: '1rem', 
+          width: '100%',
+          maxWidth: '1100px' 
+          }}>Saved Places
+        </Typography>
         
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', maxWidth: '400px', padding: '1rem', borderRadius: '8px', boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)' }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChevronIcon from '../../../Components/ChevronIcon';
 import ToggleSwitch from '../../../Components/Toggler/ToggleSwitch';
@@ -36,7 +36,9 @@ const Settings = () => {
           sx={{ cursor: 'pointer', marginBottom: '2rem' }}
           onClick={handleChevronClick}
         >
+          <IconButton>
           <ChevronIcon size="2rem" />
+          </IconButton>
           <Typography variant="h6" sx={{ marginLeft: '1rem' }}>Settings</Typography>
         </Box>
 

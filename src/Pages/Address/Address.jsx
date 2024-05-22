@@ -156,7 +156,14 @@ function AddressScreen() {
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', marginLeft: '30px', marginTop: '-10px' }}>
             <Typography variant="caption" fontWeight={100}>Add a card and note at checkout </Typography>
           </div>
-          <Button variant="contained" sx={{ backgroundColor: '#F6613F', width: '200px', marginTop: '30px' }} onClick={handleSaveAddress}>Save Address</Button>
+          <Button variant="contained" sx={{ backgroundColor: '#F6613F', '&:hover': { 
+            backgroundColor: '#E65530' 
+            }, 
+            width: '200px', 
+            marginTop: '30px' 
+            }} 
+            onClick={handleSaveAddress}>Save Address
+          </Button>
         </div>
       )}
 

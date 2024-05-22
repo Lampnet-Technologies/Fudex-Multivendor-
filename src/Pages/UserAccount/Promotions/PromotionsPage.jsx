@@ -60,7 +60,12 @@ const PromotionsPage = () => {
           Delivery orders only
         </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', paddingBottom: '1rem' }}>
-                <Button variant="contained" sx={{ marginRight: '1rem', backgroundColor: '#F6613F' }}>Order Now</Button>
+                <Button variant="contained" sx={{ marginRight: '1rem', backgroundColor: '#F6613F', 
+                  '&:hover': { 
+                  backgroundColor: '#E65530' 
+                  } 
+                  }}>Order Now
+                </Button>
                 <Typography variant="body2" sx={{ cursor: 'pointer', marginLeft: '1rem' }}>Detail</Typography>
             </Box>
       </Box>

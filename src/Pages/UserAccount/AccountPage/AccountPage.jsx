@@ -36,6 +36,10 @@ const AccountPage = () => {
     navigate('/promotions');
   };
 
+  const handleWalletClick = () => {
+    navigate('/other-payment-method');
+  };
+
   return (
     <Container maxWidth="xl" sx={{ textAlign: 'left', paddingBottom: '2rem' }}>
       {/* Top Section */}
@@ -76,11 +80,11 @@ const AccountPage = () => {
             <SettingsIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
             <Typography variant="caption">Settings</Typography>
           </Box>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-            <AccountBalanceWalletIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
-            <Typography variant="caption">Wallet</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}  onClick={handleWalletClick}>
+              <AccountBalanceWalletIcon sx={{ fontSize: '2.5rem', marginBottom: '0.5rem' }} />
+              <Typography variant="caption">Wallet</Typography>
           </Box>
-        </Box>
+          </Box>
       </Box>
 
       {/* User Preferences Section */}
