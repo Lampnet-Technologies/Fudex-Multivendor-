@@ -7,6 +7,7 @@ import ProfileDetails from './Pages/UserAccount/ProfileDetails/ProfileDetails';
 import SettingsPage from './Pages/UserAccount/Settings/SettingsPage';
 import PromotionsPage from './Pages/UserAccount/Promotions/PromotionsPage';
 import AddressScreen from './Pages/Address/Address';
+import SelectPaymentMethodPage from './Pages/Payment/Payment';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/profile-details" element={<ProfileDetails />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/promotions" element={<PromotionsPage />} />
+        <Route path="/other-payment-method" element={<SelectPaymentMethodPage />} />
       </Routes>
     </Router>
   );
