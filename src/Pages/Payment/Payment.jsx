@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Container, Typography, IconButton, Radio, RadioGroup, FormControlLabel, Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
+
 const SelectPaymentMethodPage = () => {
+  const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = useState('');
 
   const handleChange = (event) => {
@@ -12,7 +15,7 @@ const SelectPaymentMethodPage = () => {
   };
 
   const handleCloseClick = () => {
-    // Navigate to the previous page
+    navigate('/fund-wallet')
   };
 
   const handlePaymentClick = () => {
