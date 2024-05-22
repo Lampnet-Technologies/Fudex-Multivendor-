@@ -37,7 +37,7 @@ const AccountPage = () => {
   };
 
   const handleWalletClick = () => {
-    navigate('/other-payment-method');
+    navigate('/fund-wallet');
   };
 
   return (
