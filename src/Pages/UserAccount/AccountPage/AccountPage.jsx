@@ -21,7 +21,7 @@ const AccountPage = () => {
   const navigate = useNavigate();
 
   const handleChevronClick = () => {
-    navigate("/");
+    navigate("/account-page");
   };
 
   const handleViewActivityClick = () => {
