@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, TextField, Button } from '@mui/material';
-import ChevronBox from '../../../Components/ChevronBox/ChevronBox';
+import ChevronBox from '../../../components/ChevronBoxx/ChevronBox';
 
 const FundWallet = () => {
   const navigate = useNavigate();
