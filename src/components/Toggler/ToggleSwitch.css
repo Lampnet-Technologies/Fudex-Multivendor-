@@ -4,7 +4,7 @@
     border-radius: 44px;
     position: relative;
     display: inline-block;
-    width: 70px;
+    width: 74px;
     height: 34px;
   }
   
@@ -33,7 +33,7 @@
     height: 26px;
     width: 26px;
     left: 4px;
-    bottom: 4px;
+    bottom: 2px;
     background-color: black;
     border-radius: 50%;
     transition: .4s;
@@ -44,7 +44,7 @@
   }
   
   input:checked + .slider:before {
-    transform: translateX(36px);
+    transform: translateX(36px); /*checked*/
   }
 
   .toggle-switch-container {

@@ -33,7 +33,7 @@ const Settings = () => {
   const navigate = useNavigate();
 
   const handleChevronClick = () => {
-    navigate("/");
+    navigate("/account-page");
   };
 
   return (
@@ -108,6 +108,7 @@ const Settings = () => {
               style={{
                 backgroundColor: "white",
                 display: "flex",
+                flexDirection: { sm: 'column', xs: 'row'},
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",

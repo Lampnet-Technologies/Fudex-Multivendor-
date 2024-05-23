@@ -14,7 +14,7 @@ const ProfilePage = () => {
     navigate("/profile-details");
   };
   const handleCloseClick = () => {
-    navigate("/");
+    navigate("/account-page");
   };
   const handleHomeIconClick = () => {
     navigate("/address");

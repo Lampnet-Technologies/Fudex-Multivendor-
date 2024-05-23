@@ -10,7 +10,7 @@ const PromotionsPage = () => {
   const navigate = useNavigate();
 
   const handleChevronClick = () => {
-    navigate("/");
+    navigate("/account-page");
   };
 
   const handleAddressChange = (event) => {

@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/signup" element={<SignIn/>}/>
         <Route path='/otpverification' element={<OtpVerification/>}/>
         <Route path="/login" element={<LogIn/>}/>
-        <Route path="/" element={<AccountPage />} />
+        <Route path="/account-page" element={<AccountPage />} />
         <Route path="/address" element={<AddressScreen />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/profile-details" element={<ProfileDetails />} />
