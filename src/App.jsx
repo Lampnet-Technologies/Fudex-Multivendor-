@@ -16,6 +16,7 @@ import AuthPage1 from './Pages/Authentication/AuthPage1';
 import SignIn from './Pages/Authentication/SignIn';
 import LogIn from './Pages/Authentication/Login';
 import OtpVerification from "./Pages/Authentication/OtpVerification"
+import AllTransactionHistory from './Pages/UserAccount/TransactionHistory/AllTransactionHistory';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/promotions" element={<PromotionsPage />} />
         <Route path="/fund-wallet" element={<FundWallet />} />
         <Route path="/other-payment-method" element={<SelectPaymentMethodPage />} />
+        <Route path="/transaction-history" element={<AllTransactionHistory />} />
       </Routes>
     </Router>
   );

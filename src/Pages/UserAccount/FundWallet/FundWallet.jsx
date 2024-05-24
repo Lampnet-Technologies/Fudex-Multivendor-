@@ -33,15 +33,15 @@ const FundWallet = () => {
 
         {/* Top Section */}
         <Box
-          sx={{ justifyContent: 'flex-start', cursor: 'pointer', marginBottom: '2rem' }}
+          sx={{ color: '#4B5563', fontWeight: '600', justifyContent: 'flex-start', cursor: 'pointer', marginBottom: '2rem' }}
         >
           <ChevronBox text="Fund Wallet" handleClick={handleChevronClick} />
         </Box>
 
         {/* Enter Amount Section */}
         <Box sx={{ marginTop: '2rem', marginLeft: '1rem' }}>
-          <Typography variant="h6" gutterBottom>Enter Amount</Typography>
-          <Typography variant="body1" gutterBottom>Enter amount you want to fund your account</Typography>
+          <Typography variant="h6" gutterBottom sx={{color: '#4B5563', fontWeight: '600'}} >Enter Amount</Typography>
+          <Typography variant="body1" gutterBottom sx={{color: '#4B5563', fontWeight: '400'}}>Enter amount you want to fund your account</Typography>
         </Box>
 
         {/* Amount Input Section */}
@@ -91,28 +91,30 @@ const FundWallet = () => {
 
       {/* Modal Section */}
       <Modal open={open} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Box sx={{ bgcolor: 'background.paper', borderRadius: 2, boxShadow: 24, p: 4, maxWidth: 500, width: '100%' }}>
-          <Typography variant="h6" gutterBottom>Funding Options</Typography>
+        <Box sx={{ bgcolor: 'background.paper', borderRadius: 2, boxShadow: 24, p: 4, maxWidth: 550, width: '100%' }}>
+          <Typography variant="h6" gutterBottom sx={{color: '#4B5563', fontWeight: '600'}}>Funding Options</Typography>
           <Divider sx={{ mb: 2 }} />
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" gutterBottom sx={{color: '#4B5563'}}>
             Fund your account by making a transfer to this account below.
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'column', border: '2px solid #F6613F', borderRadius: 4, p: 2, mb: 4, mt: 4 }}>
-            <Typography variant="body1"><strong>Bank Name</strong></Typography>
-            <Typography variant="body1">Placeholder Bank</Typography>
-            <Typography variant="body1"><strong>Account Number</strong></Typography>
+            <Typography variant="body1" sx={{color: '#4B5563', fontSize: '12px'}}><strong>Bank Name</strong></Typography>
+            <Typography variant="body1">Sterling Bank</Typography>
+            <Typography variant="body1" sx={{color: '#4B5563', fontSize: '12px', mt:2 }}><strong>Account Number</strong></Typography>
             <Typography variant="body1">1234567890</Typography>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
             <InfoIcon color="action" sx={{ mr: 1 }} />
-            <Typography variant="body2">For more information, contact support.</Typography>
+            <Typography variant="body2" sx={{color: '#4B5563', fontSize: '12px'}} >Your wallet will be automatically funded once payment is received.<br/>
+                Funding of account via bank transfer takes 5-10 minutes.
+            </Typography>
           </Box>
           <Box
             sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', bgcolor: 'transparent' }}
             onClick={() => navigate('/other-payment-method')}
           >
             <AttachMoneyIcon color="action" sx={{ mr: 1 }} />
-            <Typography variant="body2" sx={{ flexGrow: 1 }}>Other funding options</Typography>
+            <Typography variant="body2" sx={{ flexGrow: 1, color: '#4B5563' }}>Other Funding Options</Typography>
             <ChevronRightIcon />
           </Box>
         </Box>
