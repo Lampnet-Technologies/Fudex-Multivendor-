@@ -19,7 +19,7 @@ const SelectPaymentMethodPage = () => {
   };
 
   const handlePaymentClick = () => {
-    // Handle payment logic
+    navigate('/transaction-history')
   };
 
   return (
@@ -45,7 +45,7 @@ const SelectPaymentMethodPage = () => {
 
       {/* Amount Section */}
         <Box sx={{ marginTop: '2rem', marginBottom: '1rem', textAlign: { xs: 'center', sm: 'left' } }}>
-          <Typography variant="body1">You pay</Typography>
+          <Typography variant="body1" sx={{color: '#4B5563'}}>You pay</Typography>
           <Box sx={{
             backgroundColor: '#FFF7F5',
             padding: '0.5rem 1rem',
@@ -54,7 +54,7 @@ const SelectPaymentMethodPage = () => {
             display: 'inline-block',
             minWidth: 'fit-content' // Ensures the box can grow to accommodate larger numbers
           }}>
-            <Typography variant="h6" sx={{ color: '#F6613F', whiteSpace: 'nowrap' }}>N500.00</Typography>
+            <Typography variant="h6" sx={{ color: '#F6613F', fontWeight: '600', whiteSpace: 'nowrap' }}>N500.00</Typography>
           </Box>
         </Box>
 
@@ -65,7 +65,7 @@ const SelectPaymentMethodPage = () => {
       <RadioGroup value={selectedValue} onChange={handleChange} sx={{ marginTop: '3rem' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
           <CreditCardIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1">Pay with Card</Typography>
+          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with Card</Typography>
           <FormControlLabel
             value="card"
             control={
@@ -83,7 +83,7 @@ const SelectPaymentMethodPage = () => {
         
         <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
           <AccountBalanceIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1">Pay with Bank</Typography>
+          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with Bank</Typography>
           <FormControlLabel
             value="bank"
             control={
@@ -101,7 +101,7 @@ const SelectPaymentMethodPage = () => {
 
         <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
           <CreditCardIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1">Pay with Transfer</Typography>
+          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with Transfer</Typography>
           <FormControlLabel
             value="transfer"
             control={
@@ -119,7 +119,7 @@ const SelectPaymentMethodPage = () => {
 
         <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
           <CreditCardIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1">Pay with USSD</Typography>
+          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with USSD</Typography>
           <FormControlLabel
             value="ussd"
             control={

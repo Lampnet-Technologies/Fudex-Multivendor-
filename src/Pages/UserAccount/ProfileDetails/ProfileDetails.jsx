@@ -33,10 +33,7 @@ const ProfileDetails = () => {
   };
 
   return (
-    <Container
-      maxWidth='xl'
-      sx={{ textAlign: "center", paddingBottom: "2rem" }}
-    >
+    <Container maxWidth='xl' sx={{ textAlign: "center", paddingBottom: "2rem" }}>
       {/* Top Section */}
       <Box
         sx={{
