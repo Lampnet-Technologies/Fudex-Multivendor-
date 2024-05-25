@@ -1,6 +1,7 @@
 import React from 'react';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import TopPartners from '../../components/TopPartners/TopPartners';
+import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import { Container, Box, Typography, Button, Grid } from '@mui/material';
 import './LandingPage.css';
 
@@ -71,6 +72,7 @@ const LandingPage = () => {
       <LandingPageHeader />
       <LandingPageBody />
       <TopPartners />
+      <WhyChooseUs />
     </div>
   );
 };

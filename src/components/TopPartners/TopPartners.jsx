@@ -12,14 +12,27 @@ const TopPartners = () => {
     '/images/chow.jpg',
   ];
 
+  // Duplicate the partners array to create a seamless loop effect
+  const duplicatedPartners = [...partners, ...partners];
+
   return (
     <Container maxWidth="lg" sx={{ marginTop: '8rem' }}>
-      <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', color: '#1F2937', fontWeight: '700' }}>
-        Our Top Partners
+      <Typography variant="h4" gutterBottom 
+        sx={{ 
+        textAlign: 'center', 
+        color: '#1F2937', 
+        fontWeight: '700', 
+        fontSize: {
+          xs: '1.5rem',
+          sm: '2rem',
+      } 
+      }}
+      >
+        Top Partners and more
       </Typography>
-      <Box className="top-partners-container">
+      <Box className="top-partners-container" marginTop={4}>
         <Box className="scrolling-wrapper">
-          {partners.map((partner, index) => (
+          {duplicatedPartners.map((partner, index) => (
             <Box key={index} className="partner">
               <img src={partner} alt={`Partner ${index + 1}`} />
             </Box>
