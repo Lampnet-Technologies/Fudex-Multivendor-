@@ -16,7 +16,7 @@ const LandingPageBody = () => {
             }}
           >
             <Box sx={{ flex: 1, paddingRight: { sm: '2rem' }, textAlign: { xs: 'center', sm: 'left' } }}>
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h2" gutterBottom>
                 Experience speed in food delivery with Fudex
               </Typography>
               <Typography variant="body1" gutterBottom>
