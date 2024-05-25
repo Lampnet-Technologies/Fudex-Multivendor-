@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
       </Typography>
       
       <Grid container spacing={4} justifyContent="center" alignItems="center" gap={10} marginTop={4} >
-        <Grid item xs={6} sm={6} md={4} lg={3}>
+        <Grid item xs={8} sm={6} md={4} lg={3}>
           <Box className="why-choose-us-image" 
             sx={{ 
                 minHeight: '265px', 
@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
                 }}>
           </Box>
         </Grid>
-        <Grid item xs={6} sm={6} md={4} lg={3}>
+        <Grid item xs={7} sm={6} md={4} lg={3}>
           <Box className="why-choose-us-image" 
             sx={{ 
                 minHeight: '265px', 
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
             
           </Box>
         </Grid>
-        <Grid item xs={6} sm={6} md={4} lg={3}>
+        <Grid item xs={8} sm={6} md={4} lg={3}>
           <Box className="why-choose-us-image" 
             sx={{ 
                 minHeight: '265px', 

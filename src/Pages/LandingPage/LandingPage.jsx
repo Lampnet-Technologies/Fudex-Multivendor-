@@ -42,7 +42,7 @@ const LandingPageBody = () => {
             <Box
               sx={{
                 flex: 1,
-                minHeight: { xs: '500px', sm: '600px' },
+                minHeight: { xs: '400px', sm: '600px' },
                 width: '100%',
                 backgroundImage: `url('/images/hero-img.jpg')`,
                 backgroundSize: 'cover',
