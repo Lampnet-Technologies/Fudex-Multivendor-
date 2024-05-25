@@ -18,10 +18,10 @@ const LandingPageBody = () => {
             }}
           >
             <Box sx={{ flex: 1, paddingRight: { sm: '2rem' }, textAlign: { xs: 'center', sm: 'left' } }}>
-              <Typography variant="h2" gutterBottom sx={{ fontSize: { xs: '2rem', sm: '4rem' } }}>
+              <Typography variant="h2" gutterBottom sx={{ fontSize: { xs: '2rem', sm: '4rem' }, color: '#4B5563', fontWeight: '700' }}>
                 Experience speed in food delivery with Fudex
               </Typography>
-              <Typography variant="body1" gutterBottom>
+              <Typography variant="body1" gutterBottom sx={{ color: '#4B5563' }}>
                 Discover the amazing features and benefits we offer.
               </Typography>
               <Button
@@ -51,11 +51,11 @@ const LandingPageBody = () => {
               }}
               className="hero-image"
             >
-              <img src="/images/fire.png" alt="" className="small-image image1" />
-              <img src="/images/orange-arrow.png" alt="" className="small-image-arrow image2" />
-              <img src="/images/Rectangle 7.png" alt="" className="small-image image3" />
-              <img src="/images/Frame 29.jpg" alt="" className="small-image-clock image4" />
-              <img src="/images/Rectangle 8.png" alt="" className="small-image image5" />
+              <img src="/images/fire.png" alt="Fire" className="small-image image1" />
+              <img src="/images/orange-arrow.png" alt="Orange Arrow" className="small-image-arrow image2" />
+              <img src="/images/Rectangle 7.png" alt="Rectangle 7" className="small-image image3" />
+              <img src="/images/Frame 29.jpg" alt="Clock" className="small-image-clock image4" />
+              <img src="/images/Rectangle 8.png" alt="Rectangle 8" className="small-image image5" />
             </Box>
           </Box>
         </Grid>
