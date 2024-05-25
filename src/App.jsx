@@ -9,24 +9,19 @@ import PromotionsPage from './Pages/UserAccount/Promotions/PromotionsPage';
 import AddressScreen from './Pages/Address/Address';
 import SelectPaymentMethodPage from './Pages/Payment/Payment';
 import FundWallet from './Pages/UserAccount/FundWallet/FundWallet';
-// import Pages1 from './Pages/SplashScreen/Pages1';
-import Pages2 from './Pages/SplashScreen/Pages2';
-import Pages3 from './Pages/SplashScreen/Pages3';
 import AuthPage1 from './Pages/Authentication/AuthPage1';
 import SignIn from './Pages/Authentication/SignIn';
 import LogIn from './Pages/Authentication/Login';
 import OtpVerification from "./Pages/Authentication/OtpVerification"
 import AllTransactionHistory from './Pages/UserAccount/TransactionHistory/AllTransactionHistory';
-import LandingPageHeader from './Pages/LandingPage/LandingPage';
+import LandingPage from './Pages/LandingPage/LandingPage';
 
 
 const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path='/' element={<LandingPageHeader />} />
-        <Route path='/page2' element={<Pages2/>} />
-        <Route path='page3' element={<Pages3/>} />
+      <Route path='/' element={<LandingPage />} />
         <Route path="/authpage1" element={<AuthPage1/>}/>
         <Route path="/signup" element={<SignIn/>}/>
         <Route path='/otpverification' element={<OtpVerification/>}/>
