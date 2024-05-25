@@ -1,5 +1,7 @@
 import React from 'react';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
+import TopPartners from '../../components/TopPartners/TopPartners';
+import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
 import { Container, Box, Typography, Button, Grid } from '@mui/material';
 import './LandingPage.css';
 
@@ -40,7 +42,7 @@ const LandingPageBody = () => {
             <Box
               sx={{
                 flex: 1,
-                minHeight: { xs: '500px', sm: '600px' },
+                minHeight: { xs: '400px', sm: '600px' },
                 width: '100%',
                 backgroundImage: `url('/images/hero-img.jpg')`,
                 backgroundSize: 'cover',
@@ -69,6 +71,8 @@ const LandingPage = () => {
     <div>
       <LandingPageHeader />
       <LandingPageBody />
+      <TopPartners />
+      <WhyChooseUs />
     </div>
   );
 };
