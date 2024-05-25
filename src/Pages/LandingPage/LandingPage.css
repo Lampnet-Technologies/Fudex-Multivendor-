@@ -1,0 +1,64 @@
+.hero-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-image {
+    border-radius: 8px;
+  }
+  
+  .small-image {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .small-image-clock {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .small-image-arrow {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .image1 {
+    top: 5%;
+    right: -4%;
+  }
+  
+  .image2 {
+    top: 40%;
+    right: -7%;
+  }
+  
+  .image3 {
+    bottom: 10%;
+    left: 95%;
+  }
+  
+  .image4 {
+    top: 5%;
+    left: 60%;
+    transform: translateX(-50%);
+  }
+  
+  .image5 {
+    bottom: -5%;
+    right: 35%;
+    transform: translateX(50%);
+  }
+
+  .image6 {
+    top: 10%;
+    left: 5%;
+  }
+  
