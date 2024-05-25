@@ -1,6 +1,7 @@
 import React from 'react';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import { Container, Box, Typography, Button, Grid } from '@mui/material';
+import './LandingPage.css';
 
 const LandingPageBody = () => {
   return (
@@ -8,6 +9,7 @@ const LandingPageBody = () => {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <Box
+            className="hero-container"
             sx={{
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
@@ -16,7 +18,7 @@ const LandingPageBody = () => {
             }}
           >
             <Box sx={{ flex: 1, paddingRight: { sm: '2rem' }, textAlign: { xs: 'center', sm: 'left' } }}>
-              <Typography variant="h2" gutterBottom>
+              <Typography variant="h2" gutterBottom sx={{ fontSize: { xs: '2rem', sm: '4rem' } }}>
                 Experience speed in food delivery with Fudex
               </Typography>
               <Typography variant="body1" gutterBottom>
@@ -47,7 +49,14 @@ const LandingPageBody = () => {
                 borderRadius: '8px',
                 marginTop: { xs: '1rem', sm: '0' },
               }}
-            />
+              className="hero-image"
+            >
+              <img src="/images/fire.png" alt="" className="small-image image1" />
+              <img src="/images/orange-arrow.png" alt="" className="small-image-arrow image2" />
+              <img src="/images/Rectangle 7.png" alt="" className="small-image image3" />
+              <img src="/images/Frame 29.jpg" alt="" className="small-image-clock image4" />
+              <img src="/images/Rectangle 8.png" alt="" className="small-image image5" />
+            </Box>
           </Box>
         </Grid>
       </Grid>
