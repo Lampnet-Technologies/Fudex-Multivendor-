@@ -19,10 +19,10 @@ const WhyChooseUs = () => {
       </Typography>
       
       <Grid container spacing={4} justifyContent="center" alignItems="center" gap={10} marginTop={4} >
-        <Grid item xs={8} sm={6} md={4} lg={3}>
+        <Grid item xs={7} sm={6} md={4} lg={3}>
           <Box className="why-choose-us-image" 
             sx={{ 
-                minHeight: '265px', 
+                minHeight: { sm: '270px', xs: '285px' }, 
                 width: '100%',
                 minWidth: '100px',
                 backgroundColor: '#E0E0E0', 
@@ -31,10 +31,10 @@ const WhyChooseUs = () => {
                 }}>
           </Box>
         </Grid>
-        <Grid item xs={7} sm={6} md={4} lg={3}>
+        <Grid item xs={6} sm={6} md={4} lg={3}>
           <Box className="why-choose-us-image" 
             sx={{ 
-                minHeight: '265px', 
+                minHeight: { sm:'300px', xs:'285px' }, 
                 width: '100%',
                 minWidth: '100px',
                 backgroundColor: '#E0E0E0', 
@@ -44,10 +44,10 @@ const WhyChooseUs = () => {
             
           </Box>
         </Grid>
-        <Grid item xs={8} sm={6} md={4} lg={3}>
+        <Grid item xs={6} sm={6} md={4} lg={3}>
           <Box className="why-choose-us-image" 
             sx={{ 
-                minHeight: '265px', 
+                minHeight: { sm:'265px', xs:'260px' }, 
                 width: '100%',
                 minWidth: '100px',
                 backgroundColor: '#E0E0E0', 
