@@ -108,11 +108,27 @@ const Testimonials = () => {
       <Typography variant="h6" gutterBottom sx={{ color: '#F6613F', fontWeight: '700' }}>
         Testimonials
       </Typography>
-      <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginBottom: '1.5rem' }}>
-        <Typography variant="h4" sx={{ fontWeight: '700', marginRight: '1rem' }}>
+      <Box 
+        display="flex" 
+        flexDirection={{ xs: 'column', md: 'row' }} 
+        alignItems="center" 
+        justifyContent="center" 
+        sx={{ marginBottom: '1.5rem', textAlign: { xs: 'center', md: 'left' }}}
+      >
+        <Typography 
+          variant="h4" 
+          sx={{ 
+            fontWeight: '700',
+            fontSize: { xs: '25px', sm: '2rem' }, 
+            marginBottom: { xs: '1rem', md: '0' }, 
+            marginRight: { md: '1rem' } }}
+          >
           What our customers are saying
         </Typography>
-        <Box display="flex" alignItems="center" gap={1} sx={{ marginLeft: '4rem' }}>
+        <Box 
+          display="flex" 
+          alignItems="center" 
+          gap={1} sx={{ marginLeft: '1rem', justifyContent: { xs: 'center' } }}>
           <IconButton onClick={handlePrevious} className="testimonial-arrow">
             <ArrowBackIosIcon />
           </IconButton>
