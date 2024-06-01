@@ -2,6 +2,7 @@ import React from 'react';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import TopPartners from '../../components/TopPartners/TopPartners';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
+import Testimonials from '../../components/Testimonials/Testimonials';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 import { Container, Box, Typography, Button, Grid } from '@mui/material';
 import './LandingPage.css';
@@ -74,6 +75,7 @@ const LandingPage = () => {
       <LandingPageBody />
       <TopPartners />
       <WhyChooseUs />
+      <Testimonials />
       <Footer />
     </div>
   );

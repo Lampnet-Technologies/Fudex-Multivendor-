@@ -110,6 +110,7 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
+      <hr style={{ border: 'none', borderTop: '1px solid #ccc', width: '100%', margin: '1rem 0' }} />
     </Box>
   );
 };
