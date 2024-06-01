@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, IconButton, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Container, Grid, Typography, IconButton, List, ListItem, ListItemText, Divider } from '@mui/material';
 import { Facebook, Instagram, Google } from '@mui/icons-material';
 
 const Footer = () => {
@@ -110,8 +110,11 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
-      <hr style={{ border: 'none', borderTop: '1px solid #ccc', width: '100%', margin: '1rem 0' }} />
-    </Box>
+    <Divider sx={{ borderColor: 'gray', width: '80%', margin: '2rem auto' }} />
+  <Typography variant="body2" align="center" sx={{ color: '#ccc', marginTop: '1rem' }}>
+        © 2024 Fudex. All rights reserved.
+    </Typography>
+  </Box>
   );
 };
 
