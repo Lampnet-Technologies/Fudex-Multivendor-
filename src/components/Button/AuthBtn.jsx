@@ -1,11 +1,18 @@
-import React from 'react'
+// AuthBtn.js
+import React from 'react';
 
-const AuthBtn = (props) => {
+const AuthBtn = ({ title, name, disabled }) => {
   return (
-    <section>
-      <button className='w-80 h-12 rounded-lg py-3 px-4 bg-[#6b7280] text-white font-semibold text-base text-center'>{props.name}</button>
-    </section>
-  )
-}
+    <button
+      type="submit"
+      className={`h-12 w-full rounded-full text-white font-medium text-lg transition-colors duration-200 ${
+        disabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#ff6433] cursor-pointer'
+      }`}
+      disabled={disabled}
+    >
+      {title}
+    </button>
+  );
+};
 
-export default AuthBtn
+export default AuthBtn;

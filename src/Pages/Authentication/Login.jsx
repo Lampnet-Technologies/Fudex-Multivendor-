@@ -1,50 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
-import arrow_left from "../../components/Assets/arrow_left.png";
-import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
-import SignUpUsing from "../../components/SocialIcon/SignUpUsing";
-import SocialIcons from "./SocialIcons"
-import AuthBtn from "../../components/Button/AuthBtn"
-import { NavLink } from "react-router-dom";
+import SocialIcons from "./SocialIcons";
+import AuthBtn from "../../components/Button/AuthBtn";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Button } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import axios from "axios";
 
-const LogIn = () => {
-  const [contactInfo, setContactInfo] = useState("");
+const CustomCheckbox = ({ checked, onChange }) => (
+  <div
+    onClick={() => onChange(!checked)}
+    className={`w-4 h-4 rounded-sm border ${
+      checked ? "bg-[#ff6613]" : "bg-transparent"
+    } border-[#8d4444] flex items-center justify-center cursor-pointer`}
+  >
+    {checked && (
+      <svg
+        width='12'
+        height='12'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          d='M20 6L9 17L4 12'
+          stroke='white'
+          strokeWidth='2'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+        />
+      </svg>
+    )}
+  </div>
+);
+
+const SignIn = () => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [visible, setVisible] = useState(false);
-  const [error, setError] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
   const [validationMessages, setValidationMessages] = useState({
-    contactInfo: "",
+    email: "",
     password: "",
   });
+  const [isFormValid, setIsFormValid] = useState(false);
 
-  const validateContactInfo = (value) => {
-    const phoneRegex = /^[+]?[0-9]{10,14}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const navigate = useNavigate();
 
-    if (phoneRegex.test(value)) {
-      return "valid phone number";
-    } else if (emailRegex.test(value)) {
-      return "valid email address";
-    } else {
-      return "Invalid input, Please enter a valid phone number or a valid email address";
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("email");
+    const storedPassword = localStorage.getItem("password");
+    if (storedEmail && storedPassword) {
+      setEmail(storedEmail);
+      setPassword(storedPassword);
+      setIsChecked(true);
     }
+  }, []);
+
+  useEffect(() => {
+    setIsFormValid(
+      email &&
+        password &&
+        isChecked &&
+        validationMessages.email === "valid email address" &&
+        validationMessages.password === "valid Password"
+    );
+  }, [email, password, isChecked, validationMessages]);
+
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value)
+      ? "valid email address"
+      : "Invalid email address";
   };
 
   const validatePassword = (value) => {
-    if (value.length >= 6) {
-      return "valid Password";
-    } else {
-      return "Password must be at least 6 characters long";
-    }
+    return value.length >= 6
+      ? "valid Password"
+      : "Password must be at least 6 characters long";
   };
 
-  const handleContactInfoChange = (event) => {
+  const handleEmailChange = (event) => {
     const { value } = event.target;
-    setContactInfo(value);
+    setEmail(value);
     setValidationMessages({
       ...validationMessages,
-      contactInfo: validateContactInfo(value),
+      email: validateEmail(value),
     });
   };
 
@@ -57,125 +98,168 @@ const LogIn = () => {
     });
   };
 
-  const handleLogin = async (event) => {
+  const handleCheckBoxChange = (checked) => {
+    setIsChecked(checked);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (
-      validationMessages.contactInfo.startsWith("valid") &&
-      validationMessages.password === "valid Password"
-    ) {
-      try {
-        const response = await axios.get("URL"); // Replace with actual URL
-        const users = response.data;
+    if (isFormValid) {
+      await sendUserDataToApi({ email, password });
+      // Clear the inputs after submission
+      setEmail("");
+      setPassword("");
+      setIsChecked(false);
+      setValidationMessages({
+        email: "",
+        password: "",
+      });
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+      navigate("/completeprofile");
+    }
+  };
 
-        const user = users.find(
-          (user) => user.contactInfo === contactInfo && user.password === password
-        );
-
-        if (user) {
-          window.location.href = "/success";
-        } else {
-          setError(
-            "Invalid Email or Password. Please Sign up if you do not have an account"
-          );
-        }
-      } catch (error) {
-        setError("An error occurred. Please try again later.");
-      }
-    } else {
-      setError("Please enter valid credentials.");
+  const sendUserDataToApi = async (userData) => {
+    try {
+      const response = await axios.post("URL", userData);
+      console.log("User data successfully sent to the API", response.data);
+    } catch (error) {
+      console.log("Error sending user to the API:", error);
     }
   };
 
   const getBorderColor = (message) => {
-    if (message.startsWith("Invalid") || message === "Password must be at least 6 characters long") {
+    if (
+      message.startsWith("Invalid") ||
+      message.startsWith("Passwords do not match")
+    ) {
       return "red";
     }
 
-    if (message.startsWith("valid")) {
+    if (message.startsWith("valid") || message === "Password match") {
       return "green";
     }
-    return "black";
+    return "gray-100/50";
+  };
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
   };
 
   return (
-    <section className="w-10/12 mx-auto mt-12 md:w-7/12 md:mx-auto md:flex md:flex-col md:justify-center md:py-0">
-      <div className="flex flex-col">
-        <div className="mb-5">
-          <NavLink to="/authpage1">
-            <Header img={arrow_left} name="Log In" className="mb-9" />
-          </NavLink>
-        </div>
-        <h1 className="w-10/12 mx-auto font-semibold text-start text-2xl text-[#4b5563] md:w-7/12 md:mx-auto">
-          Welcome back!
-        </h1>
+    <section className='w-10/12 mx-auto py-8 md:w-10/12'>
+      <div>
+        <NavLink to='/'>
+          <Header name='Back to home page' />
+        </NavLink>
       </div>
-      <form
-        className="flex flex-col items-center gap-3 pb-4"
-        onSubmit={handleLogin}
-      >
-        {/* Contact Info (Email or Phone Number) */}
-        <input
-          type="text"
-          value={contactInfo}
-          onChange={handleContactInfoChange}
-          placeholder="Email or Phone Number"
-          style={{ borderColor: getBorderColor(validationMessages.contactInfo) }}
-          className="w-80 h-12 bg-gray-100/50 border border-[#e8e8e8] py-3 px-4 rounded md:w-7/12"
-        />
-        {validationMessages.contactInfo && (
-          <p
-            style={{ color: validationMessages.contactInfo.startsWith("valid") ? "green" : "red" }}
-            className="w-80 md:w-7/12 text-sm"
-          >
-            {validationMessages.contactInfo}
+      <div className='w-full flex flex-col mx-auto h-4/6 my-auto shadow-lg gap-4 p-8 md:w-7/12 md:p-16 md:gap-8'>
+        {/* Sign up text  */}
+        <div>
+          <h2 className='font-bold text-2xl text-[#111827] font-sans mb-2 md:text-3xl'>
+            Welcome Back!
+          </h2>
+          <p className='font-normal text-[#4b5563] text-sm font-opensans md:text-lg'>
+            Log in to your accout to continue...
           </p>
-        )}
-
-        {/* Password */}
-        <div className="w-80 flex flex-col gap-1 h-12 bg-gray-100/50 border border-[#e8e8e8] px-4 rounded md:w-7/12">
-          <div className="w-full flex my-auto items-center justify-between h-12 md:w-full">
+        </div>
+        <form className='flex flex-col gap-6 pb-4' onSubmit={handleSubmit}>
+          {/* Email Input */}
+          <div>
+            <label className='capitalize font-medium text-sm text-[#444]'>
+              Email Address
+            </label>
             <input
-              type={visible ? "text" : "password"}
-              value={password}
-              onChange={handlePasswordChange}
-              placeholder="Password"
-              style={{ borderColor: getBorderColor(validationMessages.password) }}
-              className="bg-inherit outline-none py-3 px-4 w-full"
+              type='text'
+              value={email}
+              onChange={handleEmailChange}
+              placeholder='Email'
+              style={{ borderColor: getBorderColor(validationMessages.email) }}
+              className='flex justify-between items-center h-12 bg-gray-100/50 border py-3 px-4 rounded w-full'
             />
-            <div onClick={() => setVisible(!visible)}>
-              {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+            {validationMessages.email && (
+              <p
+                className={`w-80 md:w-7/12 text-sm ${
+                  validationMessages.email === "valid email address"
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {validationMessages.email}
+              </p>
+            )}
+          </div>
+
+          {/* Password Input */}
+          <div className=''>
+            <label className='capitalize font-medium text-sm text-[#444]'>
+              Password
+            </label>
+            <div className='flex flex-col justify-between items-center h-12 bg-gray-100/50 border border-[#e8e8e8] px-4 rounded min-w-full'>
+              <div className='flex items-center justify-between h-12 min-w-full'>
+                <input
+                  type={passwordVisible ? "text" : "password"}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  style={{
+                    borderColor: getBorderColor(validationMessages.password),
+                  }}
+                  placeholder='Password'
+                  className='bg-inherit outline-none py-3 px-4 w-11/12'
+                />
+                <Button
+                  icon={
+                    passwordVisible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
+                  onClick={togglePasswordVisibility}
+                  style={{ border: "none", background: "none" }}
+                />
+              </div>
+              <p
+                className={`w-full text-sm ${
+                  validationMessages.password === "valid Password"
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                {validationMessages.password}
+              </p>
             </div>
           </div>
-          {validationMessages.password && (
-            <p
-              style={{ color: validationMessages.password === "valid Password" ? "green" : "red" }}
-              className="w-full text-sm"
-            >
-              {validationMessages.password}
-            </p>
-          )}
-        </div>
 
-        <button
-          type="button"
-          className="text-end font-normal text-lg text-[#bdbdbd]"
-        >
-          Forgot your password?
-        </button>
-        <p className="text-xl font-normal w-5 h-5 text-[#4b5563] uppercase">or</p>
-        <AuthBtn name="Log In" type="submit" />
-        <SignUpUsing name="Sign In Using" />
-        <SocialIcons />
-        <p className="font-normal text-xl text-[#4b5563]">
-          Need An Account?{" "}
-          <NavLink to="/signup">
-            <span className="font-semibold text-xl text-[#f6613f]"> Sign Up</span>
-          </NavLink>
-        </p>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </form>
+          {/* Checkbox */}
+          <div className='flex justify-between items-center'>
+            <div className='flex gap-3 items-center'>
+              <CustomCheckbox
+                checked={isChecked}
+                onChange={handleCheckBoxChange}
+              />
+              <p className='text-[#4B5563] font-normal text-sm font-sans'>
+                keep me signed in
+              </p>
+            </div>
+            <NavLink to='/forgetpassword'>
+              <p className='capitalize font-semibold text-sm text-[#f6613f]'>
+                forget password
+              </p>
+            </NavLink>
+          </div>
+          
+          <AuthBtn title='Log in' name='Log In' disabled={!isFormValid} />
+          <div className='flex flex-col gap-6 mt-5'>
+            <p className='font-normal text-base text-[#444] text-center'>
+              Don't have an account?{" "}
+              <span className='text-[#f6613f] font-semibold text-base'>
+               <NavLink to='/signup'> Sign Up </NavLink>
+              </span>
+            </p>
+            <SocialIcons />
+          </div>
+        </form>
+      </div>
     </section>
   );
 };
 
-export default LogIn;
+export default SignIn;
