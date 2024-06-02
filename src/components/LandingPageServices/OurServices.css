@@ -1,0 +1,14 @@
+.service-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.service-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+  
