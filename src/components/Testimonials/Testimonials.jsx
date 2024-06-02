@@ -113,11 +113,12 @@ const Testimonials = () => {
         flexDirection={{ xs: 'column', md: 'row' }} 
         alignItems="center" 
         justifyContent="center" 
-        sx={{ marginBottom: '1.5rem', textAlign: { xs: 'center', md: 'left' }}}
+        sx={{ marginBottom: '1rem', textAlign: { xs: 'center', md: 'left' }}}
       >
         <Typography 
           variant="h4" 
           sx={{ 
+            color: '#333333',
             fontWeight: '700',
             fontSize: { xs: '25px', sm: '2rem' }, 
             marginBottom: { xs: '1rem', md: '0' }, 

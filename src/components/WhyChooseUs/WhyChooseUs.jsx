@@ -4,7 +4,7 @@ import '../../Pages/LandingPage/LandingPage.css';
 
 const WhyChooseUs = () => {
   return (
-    <Container maxWidth="lg" sx={{ marginTop: '8rem', marginBottom: '4rem' }}>
+    <Container maxWidth="lg" sx={{ marginTop: '8rem', marginBottom: '4rem', minHeight: '30rem' }}>
       <Typography variant="h4" gutterBottom 
         sx={{ 
             textAlign: 'center', 
