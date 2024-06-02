@@ -12,6 +12,10 @@ const LandingPageHeader = () => {
     navigate("/signup");
   };
 
+  const handleAboutClick = () => {
+    navigate("/about-us");
+  };
+
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -46,17 +50,26 @@ const LandingPageHeader = () => {
                 flexGrow: 6,
               }}
             >
-              <Typography variant="body1" sx={{ textDecoration: 'none', color: 'inherit' }}>
-                Why Fudex?
+              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+                Home
               </Typography>
-              <Typography variant="body1" sx={{ textDecoration: 'none', color: 'inherit' }}>
+              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
                 Services
               </Typography>
-              <Typography variant="body1" sx={{ textDecoration: 'none', color: 'inherit' }}>
-                Menu
+              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+                Meals
               </Typography>
-              <Typography variant="body1" sx={{ textDecoration: 'none', color: 'inherit' }}>
-                Contact
+              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+                Orders
+              </Typography>
+              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+                Favorites
+              </Typography>
+              <Typography 
+                variant="body1"
+                onClick={handleAboutClick} 
+                sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+                About Us
               </Typography>
             </Box>
             <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
