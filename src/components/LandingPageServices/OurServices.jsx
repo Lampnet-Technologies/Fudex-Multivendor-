@@ -5,7 +5,7 @@ import './OurServices.css';
 
 const OurServices = () => {
   return (
-    <Container maxWidth="lg" sx={{ marginTop: '4rem', marginBottom: '4rem', textAlign: 'center', minHeight: '30rem' }}>
+    <Container maxWidth="lg" sx={{ marginTop: '8rem', marginBottom: '4rem', textAlign: 'center', minHeight: '30rem' }}>
       <Typography variant="h6" sx={{ color: '#F6613F', marginBottom: '1rem', fontWeight: 'bold' }}>
         Our Services
       </Typography>
