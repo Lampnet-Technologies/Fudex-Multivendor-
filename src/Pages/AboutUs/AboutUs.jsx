@@ -8,7 +8,7 @@ import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 const AboutUsBody = () => {
   return (
     <div>
-    <ImageSection imageUrl= "/images/sweet.jpeg" />
+    <ImageSection imageUrl= "/images/sweet.jpeg" text="Enjoy your favorite dishes from the comfort of your home" />
     <Container maxWidth="lg" sx={{ marginTop: '2rem' }}>
       <Grid container spacing={4}>
         <Grid item xs={12}>
