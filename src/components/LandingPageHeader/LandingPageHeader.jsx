@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, Box, Container, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const LandingPageHeader = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSignUpClick = () => {
+    navigate("/signup");
+  };
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -56,6 +63,7 @@ const LandingPageHeader = () => {
               <Button color="inherit">Login</Button>
               <Button
                 variant="contained"
+                onClick={handleSignUpClick}
                 sx={{
                   borderRadius: '4rem',
                   backgroundColor: '#F6613F',
