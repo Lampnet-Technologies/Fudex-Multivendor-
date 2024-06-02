@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Box, Grid, Typography } from '@mui/material';
 import ImageSection from '../../components/ImageSection/ImageSection';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
+import ContactUsSection from '../../components/ContactUsSection/ContactUsSection';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 
 
@@ -54,6 +55,7 @@ const AboutUsBody = () => {
           </Box>
         </Grid>
       </Grid>
+      <ContactUsSection />
     </Container>
 </div>
   );
