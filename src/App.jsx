@@ -9,10 +9,6 @@ import PromotionsPage from './Pages/UserAccount/Promotions/PromotionsPage';
 import AddressScreen from './Pages/Address/Address';
 import SelectPaymentMethodPage from './Pages/Payment/Payment';
 import FundWallet from './Pages/UserAccount/FundWallet/FundWallet';
-import AuthPage1 from './Pages/Authentication/AuthPage1';
-import SignIn from './Pages/Authentication/SignIn';
-import LogIn from './Pages/Authentication/Login';
-import OtpVerification from "./Pages/Authentication/OtpVerification"
 import AllTransactionHistory from './Pages/UserAccount/TransactionHistory/AllTransactionHistory';
 import LandingPage from './Pages/LandingPage/LandingPage';
 
@@ -22,10 +18,6 @@ const App = () => {
     <Router>
       <Routes>
       <Route path='/' element={<LandingPage />} />
-        <Route path="/authpage1" element={<AuthPage1/>}/>
-        <Route path="/signup" element={<SignIn/>}/>
-        <Route path='/otpverification' element={<OtpVerification/>}/>
-        <Route path="/login" element={<LogIn/>}/>
         <Route path="/account-page" element={<AccountPage />} />
         <Route path="/address" element={<AddressScreen />} />
         <Route path="/profile" element={<ProfilePage />} />
