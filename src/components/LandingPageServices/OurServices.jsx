@@ -12,6 +12,10 @@ const OurServices = () => {
       <Typography variant="h4" 
         sx={{ 
           color: '#333333',
+          fontSize: {
+            xs: '1.5rem',
+            sm: '2rem'
+          },
           fontWeight: 'bold', 
           marginBottom: '2rem' 
           }}
