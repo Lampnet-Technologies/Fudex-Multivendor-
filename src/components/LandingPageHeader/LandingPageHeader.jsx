@@ -16,6 +16,10 @@ const LandingPageHeader = () => {
     navigate("/about-us");
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -50,7 +54,13 @@ const LandingPageHeader = () => {
                 flexGrow: 6,
               }}
             >
-              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+              <Typography variant="body1" onClick={handleHomeClick} 
+                sx={{ 
+                  cursor: 'pointer', 
+                  textDecoration: 'none', 
+                  color: 'inherit' 
+                  }}
+                  >
                 Home
               </Typography>
               <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
