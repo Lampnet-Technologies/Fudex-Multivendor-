@@ -1,0 +1,45 @@
+.meal-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+  
+.meal-image {
+    position: relative;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+  
+.meal-card:hover .meal-image {
+    transform: scale(1.05);
+}
+  
+.meal-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.trending-meals-arrow {
+    color: #F6613F;
+}
+  
+.trending-meals-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #F6613F;
+    margin: 0 5px;
+    cursor: pointer;
+}
+  
+.trending-meals-circle.active {
+    background-color: #F6613F;
+}  

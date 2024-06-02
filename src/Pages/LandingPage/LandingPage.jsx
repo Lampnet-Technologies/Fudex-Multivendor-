@@ -2,6 +2,7 @@ import React from 'react';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import TopPartners from '../../components/TopPartners/TopPartners';
 import WhyChooseUs from '../../components/WhyChooseUs/WhyChooseUs';
+import TrendingMeals from '../../components/TrendingMeals/TrendingMeals';
 import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
@@ -76,6 +77,7 @@ const LandingPage = () => {
       <LandingPageBody />
       <TopPartners />
       <WhyChooseUs />
+      <TrendingMeals />
       <HowItWorks />
       <Testimonials />
       <Footer />

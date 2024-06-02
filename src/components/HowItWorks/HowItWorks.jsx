@@ -11,7 +11,15 @@ const HowItWorks = () => {
       <Typography variant="h6" sx={{ color: '#F6613F', fontWeight: '700', marginBottom: '1rem' }}>
         Order now
       </Typography>
-      <Typography variant="h4" sx={{ color: '#333333', fontWeight: 'bold', marginBottom: '3rem' }}>
+      <Typography variant="h4" 
+        sx={{ 
+            color: '#333333',
+            fontSize: {
+                xs: '1.5rem',
+                sm: '2rem',
+            },
+            fontWeight: 'bold', 
+            marginBottom: '3rem' }}>
         How it works
       </Typography>
       <Grid container spacing={4} justifyContent="center" alignItems="center">
