@@ -33,11 +33,28 @@ const TrendingMeals = () => {
       <Typography variant="h6" sx={{ color: '#F6613F', marginBottom: '1rem', fontWeight: 'bold' }}>
         See our popular meals
       </Typography>
-      <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginBottom: '1.5rem' }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold', marginRight: '1rem' }}>
+      <Box 
+        display="flex" 
+        flexDirection={{ xs: 'column', md: 'row' }} 
+        alignItems="center" 
+        justifyContent="center" 
+        sx={{ marginBottom: '1.5rem', textAlign: { xs: 'center', md: 'left' } }}
+        >
+            <Typography 
+            variant="h4" 
+            sx={{ 
+                color: '#333333', 
+                fontSize: {
+                    xs: '1.5rem',
+                    sm: '2rem',
+                },
+                fontWeight: 'bold', 
+                marginLeft: '1rem' 
+                }}
+            >
           Trending Meals
         </Typography>
-        <Box display="flex" alignItems="center" gap={1} sx={{ marginLeft: '4rem' }}>
+        <Box display="flex" alignItems="center" gap={1} sx={{ marginLeft: '1rem', marginTop: { xs:'1rem', sm: '0' }} }>
           <IconButton onClick={handlePrevious} className="trending-meals-arrow">
             <ArrowBackIosIcon />
           </IconButton>
