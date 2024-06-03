@@ -20,6 +20,10 @@ const LandingPageHeader = () => {
     navigate("/");
   };
 
+  const handleMealsClick = () => {
+    navigate("/meals");
+  };
+
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -66,7 +70,13 @@ const LandingPageHeader = () => {
               <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
                 Services
               </Typography>
-              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+              <Typography variant="body1" onClick={handleMealsClick} 
+                sx={{ 
+                  cursor: 'pointer', 
+                  textDecoration: 'none', 
+                  color: 'inherit' 
+                  }}
+                  >
                 Meals
               </Typography>
               <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
