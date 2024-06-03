@@ -83,16 +83,18 @@ const MealItem = ({ imageUrl, title, rating, price }) => {
 const MealsBody = () => {
   const nigerianDishes = ['Appetizers', 'Salads', 'Pastries', 'Main Dish'];
   const continentalDishes = ['Appetizers', 'Salads', 'Pizzas', 'Sandwiches', 'Burgers', 'Pastas', 'Steaks', 'Desserts'];
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
   const mealData = [
-    { imageUrl: '/images/egusi.jpeg', title: 'Spicy Salmon', rating: '4.5', price: '15.99' },
-    { imageUrl: '/images/afang.jpeg', title: 'Afang', rating: '4.5', price: '15.99' },
+    { imageUrl: '/images/egusi.jpeg', title: 'Pounded Yam and Egusi Soup', rating: '4.5', price: '15.99' },
+    { imageUrl: '/images/afang.jpeg', title: 'Afang Soup', rating: '4.5', price: '15.99' },
     { imageUrl: '/images/chips.jpeg', title: 'Chicken and Chips', rating: '4.7', price: '12.99' },
     { imageUrl: '/images/abacha.png', title: 'Abacha and Barbecued Fish', rating: '4.2', price: '10.99' },
-    { imageUrl: '/images/ofada.jpeg', title: 'Ofada rice and locust beans stew', rating: '4.2', price: '10.99' },
-    { imageUrl: '/images/porridge.jpeg', title: 'Meal 1', rating: '4.5', price: '15.99' },
-    { imageUrl: '/images/yam.jpeg', title: 'Meal 2', rating: '4.7', price: '12.99' },
-    { imageUrl: '/images/afang.jpeg', title: 'Meal 3', rating: '4.2', price: '10.99' },
+    { imageUrl: '/images/Jollof-rice.jpeg', title: 'Jollof rice', rating: '4.8', price: '10.99' },
+    { imageUrl: '/images/ofada.jpeg', title: 'Ofada rice and Locust Beans Stew', rating: '4.2', price: '10.99' },
+    { imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99' },
+    { imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99' },
+    { imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognesse', rating: '4.2', price: '10.99' },
+    { imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99' },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -127,15 +129,12 @@ const MealsBody = () => {
                 </Grid>
               ))}
             </Grid>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '2rem' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '4rem' }}>
               <Pagination
                 count={Math.ceil(mealData.length / itemsPerPage)}
                 page={currentPage}
                 onChange={handlePageChange}
                 color="primary"
-                sx={{
-                  color: '#F6613F',
-                }}
               />
             </Box>
           </Grid>
