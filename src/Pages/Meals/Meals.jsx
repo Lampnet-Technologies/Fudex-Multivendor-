@@ -9,7 +9,7 @@ import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHea
 import ImageSection from '../../components/ImageSection/ImageSection';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 
-const Category = ({ title, items }) => {
+const Category = ({ title, items, onItemClick }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,7 +24,7 @@ const Category = ({ title, items }) => {
       <Collapse in={open}>
         <Box sx={{ marginLeft: '1rem' }}>
           {items.map((item, index) => (
-            <Typography key={index} variant="body1" sx={{ marginBottom: '0.5rem' }}>
+            <Typography key={index} variant="body1" sx={{ marginBottom: '0.5rem', cursor: 'pointer' }} onClick={() => onItemClick(item)}>
               {item}
             </Typography>
           ))}
@@ -85,20 +85,21 @@ const MealsBody = () => {
   const continentalDishes = ['Appetizers', 'Salads', 'Pizzas', 'Sandwiches', 'Burgers', 'Pastas', 'Steaks', 'Desserts'];
   const itemsPerPage = 9;
   const mealData = [
-    { imageUrl: '/images/egusi.jpeg', title: 'Pounded Yam and Egusi Soup', rating: '4.5', price: '15.99' },
-    { imageUrl: '/images/afang.jpeg', title: 'Afang Soup', rating: '4.5', price: '15.99' },
-    { imageUrl: '/images/chips.jpeg', title: 'Chicken and Chips', rating: '4.7', price: '12.99' },
-    { imageUrl: '/images/abacha.png', title: 'Abacha and Barbecued Fish', rating: '4.2', price: '10.99' },
-    { imageUrl: '/images/Jollof-rice.jpeg', title: 'Jollof rice', rating: '4.8', price: '10.99' },
-    { imageUrl: '/images/ofada.jpeg', title: 'Ofada rice and Locust Beans Stew', rating: '4.2', price: '10.99' },
-    { imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99' },
-    { imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99' },
-    { imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognesse', rating: '4.2', price: '10.99' },
-    { imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99' },
+    { imageUrl: '/images/egusi.jpeg', title: 'Pounded Yam and Egusi Soup', rating: '4.5', price: '15.99', category: 'Main Dish' },
+    { imageUrl: '/images/afang.jpeg', title: 'Afang Soup', rating: '4.5', price: '15.99', category: 'Main Dish' },
+    { imageUrl: '/images/chips.jpeg', title: 'Chicken and Chips', rating: '4.7', price: '12.99', category: 'Main Dish' },
+    { imageUrl: '/images/abacha.png', title: 'Abacha and Barbecued Fish', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/Jollof-rice.jpeg', title: 'Jollof rice', rating: '4.8', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/ofada.jpeg', title: 'Ofada rice and Locust Beans Stew', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99', category: 'Main Dish' },
+    { imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99', category: 'Main Dish' },
+    { imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognese', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99', category: 'Main Dish' },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOption, setSortOption] = useState('priceLowToHigh');
+  const [selectedCategory, setSelectedCategory] = useState('Main Dish');
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -108,7 +109,14 @@ const MealsBody = () => {
     setSortOption(event.target.value);
   };
 
-  const sortedMeals = [...mealData].sort((a, b) => {
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setCurrentPage(1); // Reset to first page when category changes
+  };
+
+  const filteredMeals = mealData.filter((meal) => meal.category === selectedCategory);
+
+  const sortedMeals = [...filteredMeals].sort((a, b) => {
     switch (sortOption) {
       case 'priceLowToHigh':
         return a.price - b.price;
@@ -127,19 +135,22 @@ const MealsBody = () => {
 
   const paginatedMeals = sortedMeals.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
+  console.log('Filtered Meals:', filteredMeals); // Debugging: Log filtered meals
+  console.log('Pagination Count:', Math.ceil(filteredMeals.length / itemsPerPage)); // Debugging: Log pagination count
+
   return (
     <div>
       <ImageSection imageUrl="/images/trial.jpeg" height="300px" />
       <Container maxWidth="lg" sx={{ marginTop: '4rem' }}>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={3}>
-            <Category title="Nigerian Dishes" items={nigerianDishes} />
-            <Category title="Continental Dishes" items={continentalDishes} />
-            <Category title="Italian Dishes" items={['Pastas', 'Pizzas', 'Risottos']} />
-            <Category title="Sea Food" items={['Fish', 'Shrimp', 'Crab', 'Lobster']} />
+            <Category title="Nigerian Dishes" items={nigerianDishes} onItemClick={handleCategoryClick} />
+            <Category title="Continental Dishes" items={continentalDishes} onItemClick={handleCategoryClick} />
+            <Category title="Italian Dishes" items={['Pastas', 'Pizzas', 'Risottos']} onItemClick={handleCategoryClick} />
+            <Category title="Sea Food" items={['Fish', 'Shrimp', 'Crab', 'Lobster']} onItemClick={handleCategoryClick} />
           </Grid>
           <Grid item xs={12} sm={9}>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
               <FormControl variant="outlined" size="small" sx={{ minWidth: 120 }}>
                 <InputLabel>Sort By</InputLabel>
                 <Select
@@ -169,7 +180,7 @@ const MealsBody = () => {
             </Grid>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '4rem' }}>
               <Pagination
-                count={Math.ceil(mealData.length / itemsPerPage)}
+                count={Math.ceil(filteredMeals.length / itemsPerPage)}
                 page={currentPage}
                 onChange={handlePageChange}
                 color="primary"
