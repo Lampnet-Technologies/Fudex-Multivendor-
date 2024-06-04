@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Box, Grid, Typography, IconButton, Collapse, Button, Pagination } from '@mui/material';
+import { Container, Box, Grid, Typography, IconButton, Collapse, Button, Pagination, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -98,12 +98,34 @@ const MealsBody = () => {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOption, setSortOption] = useState('priceLowToHigh');
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
   };
 
-  const paginatedMeals = mealData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
+  };
+
+  const sortedMeals = [...mealData].sort((a, b) => {
+    switch (sortOption) {
+      case 'priceLowToHigh':
+        return a.price - b.price;
+      case 'priceHighToLow':
+        return b.price - a.price;
+      case 'ratingHighToLow':
+        return b.rating - a.rating;
+      case 'titleAZ':
+        return a.title.localeCompare(b.title);
+      case 'titleZA':
+        return b.title.localeCompare(a.title);
+      default:
+        return 0;
+    }
+  });
+
+  const paginatedMeals = sortedMeals.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
     <div>
@@ -117,6 +139,22 @@ const MealsBody = () => {
             <Category title="Sea Food" items={['Fish', 'Shrimp', 'Crab', 'Lobster']} />
           </Grid>
           <Grid item xs={12} sm={9}>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
+              <FormControl variant="outlined" size="small" sx={{ minWidth: 120 }}>
+                <InputLabel>Sort By</InputLabel>
+                <Select
+                  value={sortOption}
+                  onChange={handleSortChange}
+                  label="Sort By"
+                >
+                  <MenuItem value="priceLowToHigh">Price: Low to High</MenuItem>
+                  <MenuItem value="priceHighToLow">Price: High to Low</MenuItem>
+                  <MenuItem value="ratingHighToLow">Rating: High to Low</MenuItem>
+                  <MenuItem value="titleAZ">Alphabetical: A-Z</MenuItem>
+                  <MenuItem value="titleZA">Alphabetical: Z-A</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
             <Grid container spacing={4}>
               {paginatedMeals.map((meal, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
