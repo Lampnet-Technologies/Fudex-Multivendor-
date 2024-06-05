@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Meals from './Pages/Meals/Meals';
+import FavoritesPage from './Pages/Favorites/Favorites';
 import AccountPage from './Pages/UserAccount/AccountPage/AccountPage';
 import ProfilePage from './Pages/UserAccount/ProfilePage/ProfilePage';
 import ProfileDetails from './Pages/UserAccount/ProfileDetails/ProfileDetails';
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/' element={<LandingPage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/meals" element={<Meals />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/account-page" element={<AccountPage />} />
         <Route path="/address" element={<AddressScreen />} />
         <Route path="/profile" element={<ProfilePage />} />
