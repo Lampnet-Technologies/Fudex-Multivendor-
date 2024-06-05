@@ -139,15 +139,22 @@ const LandingPageHeader = () => {
           onKeyDown={handleDrawerToggle}
         >
           <List>
-            {['Home', 'Features', 'Pricing', 'Contact'].map((text) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            <ListItem button onClick={handleHomeClick}>
+              <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button onClick={handleMealsClick}>
+              <ListItemText primary="Meals" />
+            </ListItem>
+            <ListItem button onClick={handleFavoritesClick}>
+              <ListItemText primary="Favorites" />
+            </ListItem>
+            <ListItem button onClick={handleAboutClick}>
+              <ListItemText primary="About Us" />
+            </ListItem>
             <ListItem button>
               <Button color="inherit">Login</Button>
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={handleSignUpClick}>
               <Button
                 variant="contained"
                 sx={{
