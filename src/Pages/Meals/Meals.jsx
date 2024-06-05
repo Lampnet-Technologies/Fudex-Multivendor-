@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Box, Grid, Typography, IconButton, Collapse, Button, Pagination, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { Container, Box, Grid, Typography, Collapse, Pagination, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import StarIcon from '@mui/icons-material/Star';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import ImageSection from '../../components/ImageSection/ImageSection';
+import MealItem from '../../components/MealItem/MealItem';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 
 const Category = ({ title, items, onItemClick }) => {
@@ -34,51 +31,6 @@ const Category = ({ title, items, onItemClick }) => {
   );
 };
 
-const MealItem = ({ imageUrl, title, rating, price }) => {
-  const [favorite, setFavorite] = useState(false);
-
-  return (
-    <Box sx={{ padding: '1rem', border: '1px solid #ddd', borderRadius: '8px', textAlign: 'left' }}>
-      <Box sx={{ position: 'relative', height: '200px', overflow: 'hidden', borderRadius: '8px' }}>
-        <img src={imageUrl} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        <IconButton
-          onClick={() => setFavorite(!favorite)}
-          sx={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            backgroundColor: 'white',
-            borderRadius: '50%',
-            padding: '0.5rem',
-          }}
-        >
-          {favorite ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
-        </IconButton>
-      </Box>
-      <Typography variant="caption" sx={{ marginTop: '1rem' }}>
-        {title}
-      </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'left', alignItems: 'center', marginTop: '0.5rem' }}>
-        <StarIcon sx={{ color: '#F6613F' }} />
-        <Typography variant="body2" sx={{ marginLeft: '0.5rem' }}>
-          {rating}
-        </Typography>
-      </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.5rem' }}>
-        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-          ${price}
-        </Typography>
-        <Button
-          variant="contained"
-          sx={{ backgroundColor: '#F6613F', '&:hover': { backgroundColor: '#D95436' } }}
-          startIcon={<ShoppingCartIcon />}
-        >
-          Add to Cart
-        </Button>
-      </Box>
-    </Box>
-  );
-};
 
 const MealsBody = () => {
   const nigerianDishes = ['Appetizers', 'Salads', 'Pastries', 'Main Dish'];
@@ -94,8 +46,8 @@ const MealsBody = () => {
     { imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99', category: 'Main Dish' },
     { imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99', category: 'Main Dish' },
     { imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognese', rating: '4.2', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/vegetablesoup.jpeg', title: 'Vegetable soup', rating: '4.2', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/moimoi.jpeg', title: 'Moi-moi', rating: '4.5', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/vegetablesoup.jpeg', title: 'Fufu and Vegetable soup', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/moimoi.jpeg', title: 'Moi-moi(Bean Pudding)', rating: '4.5', price: '10.99', category: 'Main Dish' },
     { imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99', category: 'Main Dish' },
   ];
 

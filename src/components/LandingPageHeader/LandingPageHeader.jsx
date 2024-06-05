@@ -24,6 +24,10 @@ const LandingPageHeader = () => {
     navigate("/meals");
   };
 
+  const handleFavoritesClick = () => {
+    navigate("/favorites");
+  };
+
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
   };
@@ -82,7 +86,9 @@ const LandingPageHeader = () => {
               <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
                 Orders
               </Typography>
-              <Typography variant="body1" sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
+              <Typography variant="body1" 
+                onClick={handleFavoritesClick}
+                sx={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>
                 Favorites
               </Typography>
               <Typography 
