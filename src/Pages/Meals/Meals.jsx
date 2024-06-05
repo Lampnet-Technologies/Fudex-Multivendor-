@@ -94,6 +94,8 @@ const MealsBody = () => {
     { imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99', category: 'Main Dish' },
     { imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99', category: 'Main Dish' },
     { imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognese', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/vegetablesoup.jpeg', title: 'Vegetable soup', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { imageUrl: '/images/moimoi.jpeg', title: 'Moi-moi', rating: '4.5', price: '10.99', category: 'Main Dish' },
     { imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99', category: 'Main Dish' },
   ];
 
