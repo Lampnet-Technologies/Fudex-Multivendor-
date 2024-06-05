@@ -136,7 +136,7 @@ const MealsBody = () => {
   const paginatedMeals = sortedMeals.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   console.log('Filtered Meals:', filteredMeals); // Debugging: Log filtered meals
-  console.log('Pagination Count:', Math.ceil(filteredMeals.length / itemsPerPage)); // Debugging: Log pagination count
+  console.log('Pagination Count:', Math.ceil(filteredMeals.length / itemsPerPage)); 
 
   return (
     <div>
