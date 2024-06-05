@@ -32,7 +32,7 @@ const Category = ({ title, items, onItemClick }) => {
 };
 
 
-const MealsBody = () => {
+const MealsBody = ({ favoriteMeals, setFavoriteMeals }) => {
   const nigerianDishes = ['Appetizers', 'Salads', 'Pastries', 'Main Dish'];
   const continentalDishes = ['Appetizers', 'Salads', 'Pizzas', 'Sandwiches', 'Burgers', 'Pastas', 'Steaks', 'Desserts'];
   const itemsPerPage = 9;
@@ -68,6 +68,14 @@ const MealsBody = () => {
     setCurrentPage(1); // Reset to first page when category changes
   };
 
+  const handleFavoriteToggle = (meal) => {
+    if (favoriteMeals.some((fav) => fav.title === meal.title)) {
+      setFavoriteMeals(favoriteMeals.filter((fav) => fav.title !== meal.title));
+    } else {
+      setFavoriteMeals([...favoriteMeals, meal]);
+    }
+  };
+
   const filteredMeals = mealData.filter((meal) => meal.category === selectedCategory);
 
   const sortedMeals = [...filteredMeals].sort((a, b) => {
@@ -89,8 +97,6 @@ const MealsBody = () => {
 
   const paginatedMeals = sortedMeals.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  console.log('Filtered Meals:', filteredMeals); // Debugging: Log filtered meals
-  console.log('Pagination Count:', Math.ceil(filteredMeals.length / itemsPerPage)); 
 
   return (
     <div>
@@ -128,6 +134,8 @@ const MealsBody = () => {
                     title={meal.title}
                     rating={meal.rating}
                     price={meal.price}
+                    isFavorite={favoriteMeals.some((fav) => fav.title === meal.title)}
+                    onFavoriteToggle={() => handleFavoriteToggle(meal)}
                   />
                 </Grid>
               ))}
@@ -147,11 +155,11 @@ const MealsBody = () => {
   );
 };
 
-const Meals = () => {
+const Meals = ({ favoriteMeals, setFavoriteMeals }) => {
   return (
     <div>
       <LandingPageHeader />
-      <MealsBody />
+      <MealsBody favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals}/>
       <Footer />
     </div>
   );
