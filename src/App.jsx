@@ -22,6 +22,8 @@ import ForgetPasswordMailMessage from "./Pages/Authentication/ForgetPasswordMail
 import CreateNewPassword from "./Pages/Authentication/CreateNewPassword";
 import PasswordUpdated from "./Pages/Authentication/PasswordUpdated";
 import CompleteProfile from "./Pages/Authentication/CompleteProfile";
+import AboutUs from './Pages/AboutUs/AboutUs';
+import Meals from './Pages/Meals/Meals';
 
 const App = () => {
   return (
@@ -34,14 +36,11 @@ const App = () => {
         <Route path='/emailverified' element={<EmailVerified />} />
         <Route path='/otpverification' element={<OtpVerification />} />
         <Route path='/login' element={<LogIn />} />
-        <Route path="completeprofile" element={<CompleteProfile/>}/>
+        <Route path='/completeprofile' element={<CompleteProfile />} />
         <Route path='/forgetpassword' element={<ForgetPassword />} />
-        <Route
-          path='/forgetpasswordmailmessage'
-          element={<ForgetPasswordMailMessage />}
-        />
-        <Route path='createnewpassword' element={<CreateNewPassword/>}/>
-        <Route path='passwordupdated' element={<PasswordUpdated/>}/>
+        <Route path='/forgetpasswordmailmessage' element={<ForgetPasswordMailMessage />} />
+        <Route path='/createnewpassword' element={<CreateNewPassword />} />
+        <Route path='/passwordupdated' element={<PasswordUpdated />} />
         <Route path='/account-page' element={<AccountPage />} />
         <Route path='/address' element={<AddressScreen />} />
         <Route path='/profile' element={<ProfilePage />} />
@@ -49,14 +48,10 @@ const App = () => {
         <Route path='/settings' element={<SettingsPage />} />
         <Route path='/promotions' element={<PromotionsPage />} />
         <Route path='/fund-wallet' element={<FundWallet />} />
-        <Route
-          path='/other-payment-method'
-          element={<SelectPaymentMethodPage />}
-        />
-        <Route
-          path='/transaction-history'
-          element={<AllTransactionHistory />}
-        />
+        <Route path='/other-payment-method' element={<SelectPaymentMethodPage />} />
+        <Route path='/transaction-history' element={<AllTransactionHistory />} />
+        <Route path='/about-us' element={<AboutUs />} />
+        <Route path='/meals' element={<Meals />} />
       </Routes>
     </Router>
   );
