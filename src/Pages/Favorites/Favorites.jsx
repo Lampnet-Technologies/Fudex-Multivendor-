@@ -26,7 +26,7 @@ const FavoritesPage = ({ favoriteMeals }) => {
               </Grid>
             ))
           ) : (
-            <Typography variant="h6" sx={{ margin: 'auto', marginTop: '2rem' }}>
+            <Typography variant="h6" sx={{ margin: 'auto', marginTop: '4rem' }}>
               No favorite meals yet.
             </Typography>
           )}
