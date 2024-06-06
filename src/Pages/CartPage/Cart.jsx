@@ -6,6 +6,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { useNavigate } from 'react-router-dom';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
+import ImageSection from '../../components/ImageSection/ImageSection';
 
 const CartItem = ({ item, onIncrement, onDecrement, onRemove }) => {
   return (
@@ -65,10 +66,11 @@ const Cart = ({ cartItems, setCartItems }) => {
   return (
     <>
       <LandingPageHeader cartItems={cartItems} />
-      <Container sx={{ paddingY: '2rem' }}>
-        <Typography variant="h4" gutterBottom>
-            Cart
-        </Typography>
+        <ImageSection imageUrl="/images/orange2.jpeg" height="300px" />
+            <Container sx={{ paddingY: '2rem' }}>
+                <Typography variant="h4" gutterBottom>
+                Cart
+                </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
             {cartItems.length === 0 ? (
