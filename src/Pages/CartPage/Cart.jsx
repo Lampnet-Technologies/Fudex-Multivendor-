@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Grid, IconButton, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useNavigate } from 'react-router-dom';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 import ImageSection from '../../components/ImageSection/ImageSection';
@@ -11,9 +11,9 @@ import ImageSection from '../../components/ImageSection/ImageSection';
 const CartItem = ({ item, onIncrement, onDecrement, onRemove }) => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-      <img src={item.image} alt={item.name} style={{ width: '80px', height: '80px', marginRight: '1rem' }} />
+      <img src={item.imageUrl} alt={item.title} style={{ width: '80px', height: '80px', marginRight: '1rem' }} />
       <Box sx={{ flex: 1 }}>
-        <Typography variant="body1">{item.name}</Typography>
+        <Typography variant="body1">{item.title}</Typography>
         <Typography variant="body2" color="textSecondary">${item.price}</Typography>
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -55,7 +55,6 @@ const Cart = ({ cartItems, setCartItems }) => {
   };
 
   const handleCheckout = () => {
-    // Implement checkout functionality here
     console.log('Proceed to checkout');
   };
 
@@ -63,14 +62,18 @@ const Cart = ({ cartItems, setCartItems }) => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
 
+  useEffect(() => {
+    console.log('Cart Items:', cartItems);
+  }, [cartItems]);
+
   return (
     <>
       <LandingPageHeader cartItems={cartItems} />
-        <ImageSection imageUrl="/images/orange2.jpeg" height="300px" />
-            <Container sx={{ paddingY: '2rem' }}>
-                <Typography variant="h4" gutterBottom>
-                Cart
-                </Typography>
+      <ImageSection imageUrl="/images/orange2.jpeg" height="300px" />
+      <Container sx={{ paddingY: '2rem' }}>
+        <Typography variant="h4" gutterBottom>
+          Cart
+        </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
             {cartItems.length === 0 ? (

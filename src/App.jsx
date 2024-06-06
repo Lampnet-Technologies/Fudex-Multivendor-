@@ -46,7 +46,7 @@ const App = () => {
         <Route path='/createnewpassword' element={<CreateNewPassword />} />
         <Route path='/passwordupdated' element={<PasswordUpdated />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/meals" element={<Meals favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals}/>} />
+        <Route path="/meals" element={<Meals cartItems={cartItems} setCartItems={setCartItems} favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals} />} />
         <Route path="/favorites" element={<FavoritesPage favoriteMeals={favoriteMeals} />} />
         <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
         <Route path="/account-page" element={<AccountPage />} />
