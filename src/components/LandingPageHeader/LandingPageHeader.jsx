@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button, Box, Container, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { AppBar, Badge, Toolbar, Typography, Button, Box, Container, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const LandingPageHeader = () => {
+const LandingPageHeader = ({ cartItems = [] }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const navigate = useNavigate();
+
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const handleSignUpClick = () => {
     navigate("/signup");
@@ -111,11 +113,14 @@ const LandingPageHeader = () => {
               <IconButton color="inherit" onClick={handleNotificationsClick}>
                 <NotificationsIcon />
               </IconButton>
+
               <IconButton color="inherit" 
-                onClick={handleCartClick}
-                >
-              <ShoppingCartIcon />
+                onClick={handleCartClick}>
+                  <Badge badgeContent={totalItems} color="error">
+                   <ShoppingCartIcon />
+                </Badge>
               </IconButton>
+
               <Button color="inherit"
                 onClick={handleLoginClick}
                 >Login</Button>
@@ -179,7 +184,7 @@ const LandingPageHeader = () => {
             <ListItem button onClick={handleCartClick}>
               <ListItemText primary="Cart" />
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={handleLoginClick}>
               <Button color="inherit">Login</Button>
             </ListItem>
             <ListItem button onClick={handleSignUpClick}>

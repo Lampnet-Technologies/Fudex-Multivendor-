@@ -38,18 +38,18 @@ const MealsBody = ({ favoriteMeals, setFavoriteMeals, onAddToCart }) => {
   const continentalDishes = ['Appetizers', 'Salads', 'Pizzas', 'Sandwiches', 'Burgers', 'Pastas', 'Steaks', 'Desserts'];
   const itemsPerPage = 9;
   const mealData = [
-    { imageUrl: '/images/egusi.jpeg', title: 'Pounded Yam and Egusi Soup', rating: '4.5', price: '15.99', category: 'Main Dish' },
-    { imageUrl: '/images/afang.jpeg', title: 'Afang Soup', rating: '4.5', price: '15.99', category: 'Main Dish' },
-    { imageUrl: '/images/chips.jpeg', title: 'Chicken and Chips', rating: '4.7', price: '12.99', category: 'Main Dish' },
-    { imageUrl: '/images/abacha.png', title: 'Abacha and Barbecued Fish', rating: '4.2', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/Jollof-rice.jpeg', title: 'Jollof rice', rating: '4.8', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/ofada.jpeg', title: 'Ofada rice and Locust Beans Stew', rating: '4.2', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99', category: 'Main Dish' },
-    { imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99', category: 'Main Dish' },
-    { imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognese', rating: '4.2', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/vegetablesoup.jpeg', title: 'Fufu and Vegetable soup', rating: '4.2', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/moimoi.jpeg', title: 'Moi-moi(Bean Pudding)', rating: '4.5', price: '10.99', category: 'Main Dish' },
-    { imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { id: '1', imageUrl: '/images/egusi.jpeg', title: 'Pounded Yam and Egusi Soup', rating: '4.5', price: '15.99', category: 'Main Dish' },
+    { id: '2', imageUrl: '/images/afang.jpeg', title: 'Afang Soup', rating: '4.5', price: '15.99', category: 'Main Dish' },
+    { id: '3', imageUrl: '/images/chips.jpeg', title: 'Chicken and Chips', rating: '4.7', price: '12.99', category: 'Main Dish' },
+    { id: '4', imageUrl: '/images/abacha.png', title: 'Abacha and Barbecued Fish', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { id: '5', imageUrl: '/images/Jollof-rice.jpeg', title: 'Jollof rice', rating: '4.8', price: '10.99', category: 'Main Dish' },
+    { id: '6', imageUrl: '/images/ofada.jpeg', title: 'Ofada rice and Locust Beans Stew', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { id: '7', imageUrl: '/images/porridge.jpeg', title: 'Yam Porridge', rating: '4.5', price: '15.99', category: 'Main Dish' },
+    { id: '8', imageUrl: '/images/yam.jpeg', title: 'Yam and Egg Sauce', rating: '4.7', price: '12.99', category: 'Main Dish' },
+    { id: '9', imageUrl: '/images/spag.webp', title: 'Spaghetti Bolognese', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { id: '10', imageUrl: '/images/vegetablesoup.jpeg', title: 'Fufu and Vegetable soup', rating: '4.2', price: '10.99', category: 'Main Dish' },
+    { id: '11', imageUrl: '/images/moimoi.jpeg', title: 'Moi-moi(Bean Pudding)', rating: '4.5', price: '10.99', category: 'Main Dish' },
+    { id: '12', imageUrl: '/images/catfish.jpeg', title: 'Catfish Peppersoup', rating: '4.2', price: '10.99', category: 'Main Dish' },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -157,14 +157,27 @@ const MealsBody = ({ favoriteMeals, setFavoriteMeals, onAddToCart }) => {
   );
 };
 
-const Meals = ({ favoriteMeals, setFavoriteMeals }) => {
-  const [cartItems, setCartItems] = useState([]);
+const Meals = ({ favoriteMeals, setFavoriteMeals, cartItems, setCartItems }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleAddToCart = (meal) => {
-    setCartItems([...cartItems, meal]);
+    // Assuming each meal has a unique 'id' property
+    const existingItemIndex = cartItems.findIndex(item => item.id === meal.id);
+  
+    if (existingItemIndex >= 0) {
+      // Item exists, increment quantity
+      const updatedItems = [...cartItems];
+      updatedItems[existingItemIndex].quantity += 1;
+      setCartItems(updatedItems);
+
+    } else {
+      // New item, add to cart with quantity 1
+      setCartItems([...cartItems, {...meal, quantity: 1 }]);
+    }
+  
+    // Show popup
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000); 
+    setTimeout(() => setShowPopup(false), 2000);
   };
 
   return (
@@ -173,8 +186,6 @@ const Meals = ({ favoriteMeals, setFavoriteMeals }) => {
       <MealsBody 
         favoriteMeals={favoriteMeals} 
         setFavoriteMeals={setFavoriteMeals}
-        cartItems={cartItems} 
-        setCartItems={setCartItems}
         onAddToCart={handleAddToCart}
         />
       <Footer />
