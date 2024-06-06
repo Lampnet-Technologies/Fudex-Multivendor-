@@ -15,6 +15,7 @@ import LogIn from "./Pages/Authentication/Login";
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Meals from './Pages/Meals/Meals';
 import FavoritesPage from './Pages/Favorites/Favorites';
+import Cart from './Pages/CartPage/Cart';
 import AccountPage from './Pages/UserAccount/AccountPage/AccountPage';
 import ProfilePage from './Pages/UserAccount/ProfilePage/ProfilePage';
 import ProfileDetails from './Pages/UserAccount/ProfileDetails/ProfileDetails';
@@ -29,6 +30,8 @@ import AllTransactionHistory from './Pages/UserAccount/TransactionHistory/AllTra
 
 const App = () => {
   const [favoriteMeals, setFavoriteMeals] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <Router>
       <Routes>
@@ -45,6 +48,7 @@ const App = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/meals" element={<Meals favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals}/>} />
         <Route path="/favorites" element={<FavoritesPage favoriteMeals={favoriteMeals} />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
         <Route path="/account-page" element={<AccountPage />} />
         <Route path="/address" element={<AddressScreen />} />
         <Route path="/profile" element={<ProfilePage />} />

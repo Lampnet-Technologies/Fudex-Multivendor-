@@ -3,6 +3,7 @@ import { Container, Box, Grid, Typography, Collapse, Pagination, Select, MenuIte
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import ImageSection from '../../components/ImageSection/ImageSection';
+import CartPopup from '../../components/CartPopup/CartPopup'; 
 import MealItem from '../../components/MealItem/MealItem';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 
@@ -32,7 +33,7 @@ const Category = ({ title, items, onItemClick }) => {
 };
 
 
-const MealsBody = ({ favoriteMeals, setFavoriteMeals }) => {
+const MealsBody = ({ favoriteMeals, setFavoriteMeals, onAddToCart }) => {
   const nigerianDishes = ['Appetizers', 'Salads', 'Pastries', 'Main Dish'];
   const continentalDishes = ['Appetizers', 'Salads', 'Pizzas', 'Sandwiches', 'Burgers', 'Pastas', 'Steaks', 'Desserts'];
   const itemsPerPage = 9;
@@ -136,6 +137,7 @@ const MealsBody = ({ favoriteMeals, setFavoriteMeals }) => {
                     price={meal.price}
                     isFavorite={favoriteMeals.some((fav) => fav.title === meal.title)}
                     onFavoriteToggle={() => handleFavoriteToggle(meal)}
+                    onAddToCart={() => onAddToCart(meal)}  // Adding cart handler
                   />
                 </Grid>
               ))}
@@ -156,11 +158,27 @@ const MealsBody = ({ favoriteMeals, setFavoriteMeals }) => {
 };
 
 const Meals = ({ favoriteMeals, setFavoriteMeals }) => {
+  const [cartItems, setCartItems] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleAddToCart = (meal) => {
+    setCartItems([...cartItems, meal]);
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000); 
+  };
+
   return (
     <div>
-      <LandingPageHeader />
-      <MealsBody favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals}/>
+      <LandingPageHeader cartItems={cartItems}/>
+      <MealsBody 
+        favoriteMeals={favoriteMeals} 
+        setFavoriteMeals={setFavoriteMeals}
+        cartItems={cartItems} 
+        setCartItems={setCartItems}
+        onAddToCart={handleAddToCart}
+        />
       <Footer />
+      {showPopup && <CartPopup />}
     </div>
   );
 };
