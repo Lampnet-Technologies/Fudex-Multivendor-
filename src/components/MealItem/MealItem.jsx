@@ -5,9 +5,10 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarIcon from '@mui/icons-material/Star';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const MealItem = ({ imageUrl, title, rating, price, isFavorite, onFavoriteToggle }) => {
+const MealItem = ({ imageUrl, title, rating, price, isFavorite, onFavoriteToggle, onAddToCart }) => {
     
   return (
+
     <Box sx={{ padding: '1rem', border: '1px solid #ddd', borderRadius: '8px', textAlign: 'left' }}>
       <Box sx={{ position: 'relative', height: '200px', overflow: 'hidden', borderRadius: '8px' }}>
         <img src={imageUrl} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -40,6 +41,7 @@ const MealItem = ({ imageUrl, title, rating, price, isFavorite, onFavoriteToggle
         </Typography>
         <Button
           variant="contained"
+          onClick={onAddToCart}
           sx={{ backgroundColor: '#F6613F', '&:hover': { backgroundColor: '#D95436' } }}
           startIcon={<ShoppingCartIcon />}
         >

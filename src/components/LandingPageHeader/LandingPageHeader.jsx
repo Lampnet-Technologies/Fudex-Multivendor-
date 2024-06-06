@@ -15,6 +15,10 @@ const LandingPageHeader = () => {
     navigate("/signup");
   };
 
+  const handleLoginClick = () => {
+    navigate("/login");
+  }
+
   const handleAboutClick = () => {
     navigate("/about-us");
   };
@@ -107,10 +111,14 @@ const LandingPageHeader = () => {
               <IconButton color="inherit" onClick={handleNotificationsClick}>
                 <NotificationsIcon />
               </IconButton>
-              <IconButton color="inherit" onClick={handleCartClick}>
-                <ShoppingCartIcon />
+              <IconButton color="inherit" 
+                onClick={handleCartClick}
+                >
+              <ShoppingCartIcon />
               </IconButton>
-              <Button color="inherit">Login</Button>
+              <Button color="inherit"
+                onClick={handleLoginClick}
+                >Login</Button>
               <Button
                 variant="contained"
                 onClick={handleSignUpClick}
