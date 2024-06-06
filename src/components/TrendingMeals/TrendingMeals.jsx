@@ -9,10 +9,10 @@ const trendingMealsData = [
   { name: 'Meal 2', image: '/images/spag.webp' },
   { name: 'Meal 3', image: '/images/yam.jpeg' },
   { name: 'Meal 4', image: '/images/porridge.jpeg' },
-  { name: 'Meal 5', image: '/images/meal5.jpg' },
-  { name: 'Meal 6', image: '/images/meal6.jpg' },
-  { name: 'Meal 7', image: '/images/meal7.jpg' },
-  { name: 'Meal 8', image: '/images/meal8.jpg' },
+  { name: 'Meal 5', image: '/images/chips.jpeg' },
+  { name: 'Meal 6', image: '/images/Jollof-rice.jpeg' },
+  { name: 'Meal 7', image: '/images/vegetablesoup.jpeg' },
+  { name: 'Meal 8', image: '/images/catfish.jpeg' },
 ];
 
 const TrendingMeals = () => {
