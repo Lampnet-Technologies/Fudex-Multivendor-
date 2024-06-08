@@ -1,159 +1,17 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Box, Container, Typography, IconButton, Radio, RadioGroup, FormControlLabel, Button } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import React from 'react';
+import ImageSection from '../../components/ImageSection/ImageSection';
+import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
+import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 
 
-const SelectPaymentMethodPage = () => {
-  const navigate = useNavigate();
-  const [selectedValue, setSelectedValue] = useState('');
-
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-
-  const handleCloseClick = () => {
-    navigate('/fund-wallet')
-  };
-
-  const handlePaymentClick = () => {
-    navigate('/transaction-history')
-  };
-
+const Payment = () => {
   return (
-    <Container maxWidth="sm" sx={{ marginTop: '3rem', padding: '1rem' }}>
-      {/* Header Section */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-        <Typography
-          variant="h6"
-          sx={{
-            marginLeft: { xs: '7rem', sm: '0rem' },
-            flexGrow: { sm: 1 },
-            textAlign: { sm: 'left' }
-          }}
-        >
-          Select Payment Method
-        </Typography>
-        <IconButton onClick={handleCloseClick}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-      
-      
+    <div>
+      <LandingPageHeader />
+      <ImageSection imageUrl="/images/orange3" />
+      <Footer />
+    </div>
+  )
+}
 
-      {/* Amount Section */}
-        <Box sx={{ marginTop: '2rem', marginBottom: '1rem', textAlign: { xs: 'center', sm: 'left' } }}>
-          <Typography variant="body1" sx={{color: '#4B5563'}}>You pay</Typography>
-          <Box sx={{
-            backgroundColor: '#FFF7F5',
-            padding: '0.5rem 1rem',
-            borderRadius: '2rem',
-            marginTop: '0.5rem',
-            display: 'inline-block',
-            minWidth: 'fit-content' // Ensures the box can grow to accommodate larger numbers
-          }}>
-            <Typography variant="h6" sx={{ color: '#F6613F', fontWeight: '600', whiteSpace: 'nowrap' }}>N500.00</Typography>
-          </Box>
-        </Box>
-
-      
-      
-
-      {/* Payment Methods Section */}
-      <RadioGroup value={selectedValue} onChange={handleChange} sx={{ marginTop: '3rem' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
-          <CreditCardIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with Card</Typography>
-          <FormControlLabel
-            value="card"
-            control={
-              <Radio
-                sx={{
-                  '&.Mui-checked': {
-                    color: '#F6613F'
-                  }
-                }}
-              />
-            }
-            sx={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Box>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
-          <AccountBalanceIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with Bank</Typography>
-          <FormControlLabel
-            value="bank"
-            control={
-              <Radio
-                sx={{
-                  '&.Mui-checked': {
-                    color: '#F6613F'
-                  }
-                }}
-              />
-            }
-            sx={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Box>
-
-        <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
-          <CreditCardIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with Transfer</Typography>
-          <FormControlLabel
-            value="transfer"
-            control={
-              <Radio
-                sx={{
-                  '&.Mui-checked': {
-                    color: '#F6613F'
-                  }
-                }}
-              />
-            }
-            sx={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Box>
-
-        <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
-          <CreditCardIcon sx={{ marginRight: '1rem', fontSize: '3rem' }} />
-          <Typography variant="body1" sx={{color: '#4B5563'}}>Pay with USSD</Typography>
-          <FormControlLabel
-            value="ussd"
-            control={
-              <Radio
-                sx={{
-                  '&.Mui-checked': {
-                    color: '#F6613F'
-                  }
-                }}
-              />
-            }
-            sx={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Box>
-      </RadioGroup>
-
-      {/* Make Payment Button */}
-      <Button 
-        variant="contained"
-        fullWidth
-        sx={{ 
-          backgroundColor: '#F6613F',
-          height: '45px',
-          marginTop: '5rem',
-          '&:hover': { 
-            backgroundColor: '#E65530' 
-          } 
-        }}
-        onClick={handlePaymentClick}
-      >
-        Make Payment
-      </Button>
-    </Container>
-  );
-};
-
-export default SelectPaymentMethodPage;
+export default Payment
