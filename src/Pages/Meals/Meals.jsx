@@ -177,7 +177,11 @@ const Meals = ({ favoriteMeals, setFavoriteMeals, cartItems, setCartItems }) => 
   
     // Show popup
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000);
+    setTimeout(() => setShowPopup(false), 7000);
+  };
+
+  const handleDeleteFromCart = (mealId) => {
+    setCartItems(cartItems.filter(item => item.id !== mealId));
   };
 
   return (
@@ -189,7 +193,13 @@ const Meals = ({ favoriteMeals, setFavoriteMeals, cartItems, setCartItems }) => 
         onAddToCart={handleAddToCart}
         />
       <Footer />
-      {showPopup && <CartPopup />}
+      {showPopup && (
+        <CartPopup 
+          cartItems={cartItems} 
+          onRemove={handleDeleteFromCart}
+          onClose={() => setShowPopup(false)}
+          />
+        )}
     </div>
   );
 };
