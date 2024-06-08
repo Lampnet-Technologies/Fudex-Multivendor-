@@ -16,6 +16,7 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Meals from './Pages/Meals/Meals';
 import FavoritesPage from './Pages/Favorites/Favorites';
 import Cart from './Pages/CartPage/Cart';
+import OrderSummary from './Pages/OrderSummary/OrderSummary';
 import AccountPage from './Pages/UserAccount/AccountPage/AccountPage';
 import ProfilePage from './Pages/UserAccount/ProfilePage/ProfilePage';
 import ProfileDetails from './Pages/UserAccount/ProfileDetails/ProfileDetails';
@@ -49,6 +50,7 @@ const App = () => {
         <Route path="/meals" element={<Meals cartItems={cartItems} setCartItems={setCartItems} favoriteMeals={favoriteMeals} setFavoriteMeals={setFavoriteMeals} />} />
         <Route path="/favorites" element={<FavoritesPage favoriteMeals={favoriteMeals} />} />
         <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+        <Route path="/order-summary" element={<OrderSummary  cartItems={cartItems} />} />
         <Route path="/account-page" element={<AccountPage />} />
         <Route path="/address" element={<AddressScreen />} />
         <Route path="/profile" element={<ProfilePage />} />
