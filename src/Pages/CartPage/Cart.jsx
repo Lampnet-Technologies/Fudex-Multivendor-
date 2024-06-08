@@ -55,7 +55,7 @@ const Cart = ({ cartItems, setCartItems }) => {
   };
 
   const handleCheckout = () => {
-    console.log('Proceed to checkout');
+    navigate('/order-summary')
   };
 
   const getTotal = () => {
