@@ -23,7 +23,7 @@ import ProfileDetails from './Pages/UserAccount/ProfileDetails/ProfileDetails';
 import SettingsPage from './Pages/UserAccount/Settings/SettingsPage';
 import PromotionsPage from './Pages/UserAccount/Promotions/PromotionsPage';
 import AddressScreen from './Pages/Address/Address';
-import SelectPaymentMethodPage from './Pages/Payment/Payment';
+import Payment from './Pages/Payment/Payment';
 import FundWallet from './Pages/UserAccount/FundWallet/FundWallet';
 import AllTransactionHistory from './Pages/UserAccount/TransactionHistory/AllTransactionHistory';
 
@@ -58,7 +58,7 @@ const App = () => {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/promotions" element={<PromotionsPage />} />
         <Route path="/fund-wallet" element={<FundWallet />} />
-        <Route path="/other-payment-method" element={<SelectPaymentMethodPage />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/transaction-history" element={<AllTransactionHistory />} />
       </Routes>
     </Router>

@@ -1,9 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Grid, TextField, Button } from '@mui/material';
 import LandingPageHeader from '../../components/LandingPageHeader/LandingPageHeader';
 import Footer from '../../components/LandingPageFooter/LandingPageFooter';
 
 const OrderSummary = ({ cartItems }) => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
+  const handlePaymentClick = () => {
+    navigate("/payment");
+  };
+
   const getTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
   };
@@ -42,7 +53,9 @@ const OrderSummary = ({ cartItems }) => {
                 margin="normal" 
               />
               <Typography variant="body2" color="textSecondary" sx={{ marginTop: '1rem' }}>
-                Already have an account? <Button color="primary">Log In</Button>
+                Already have an account? <Button color="primary"
+                onClick={handleLoginClick}
+                >Log In</Button>
               </Typography>
             </Box>
           </Grid>
@@ -76,6 +89,7 @@ const OrderSummary = ({ cartItems }) => {
                 <Typography variant="h6">Cart Summary</Typography>
                 <Typography variant="body1">Total: ${getTotal()}</Typography>
                 <Button
+                  onClick={handlePaymentClick}
                   variant="contained"
                   color="primary"
                   sx={{ backgroundColor: '#F6613F', marginTop: '1rem' }}
